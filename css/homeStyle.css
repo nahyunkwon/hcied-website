@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-position-y: bottom;
   padding-bottom: 10px;
-  padding-top:10px;
+  padding-top:30px;
 }
 
 a#urlStyle {
@@ -74,4 +74,8 @@ div.card-cus > a.btn.btn-primary#none-shadow:link {
 
 .profile {
     border-radius:90%
+}
+
+#logo {
+    height:100px;
 }
