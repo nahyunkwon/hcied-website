@@ -4,13 +4,12 @@
 
 .menu_title {
   text-align: center;
-  background-image: -webkit-linear-gradient(0deg, rgb(0,0,0,0), rgb(255,196,23,100), rgb(0,0,0,0));
-  background-image: -moz-linear-gradient(0deg, rgb(0,0,0,0), rgb(255,196,23,100), rgb(0,0,0,0));
-  background-image: linear-gradient(to right, 0deg, rgb(0,0,0,0), rgb(255,196,23,100), rgb(0,0,0,0));
+
   -webkit-background-size: 100% .1em;
   background-repeat: no-repeat;
   background-position-y: bottom;
   padding-bottom: 10px;
+  padding-top:10px;
 }
 
 a#urlStyle {
@@ -28,7 +27,7 @@ a#urlStyle:hover {
 }
 
 .card-cus {
-  background-color: rgba(0, 44, 13, .06);
+  background-color: #fff;
 }
 
 div.card-cus > h5.card-title.card-title-cus {
@@ -46,13 +45,14 @@ div.card-cus > p.card-text#proj_text {
 }
 
 div.card-cus > a.btn.btn-primary {
-  background-color: #002C0D;
-  border: solid .1em #002C0D;
+  background-color: gray;
+  border: solid .1em gray;
 }
 
 div.card-cus > .btn.btn-primary:hover {
-  background-color: #408053;
-  border: solid .1em #408053;
+  color:white;
+  background-color: black;
+  border: solid .1em gray;
   box-shadow: none;
 }
 
@@ -63,9 +63,15 @@ div.card-cus > a.btn.btn-primary#none-shadow:link {
 
 .card-title-cus {
   font-weight: bold;
-  border-bottom: solid .01em #002C0D;
+  border-bottom: solid .01em gray;
 }
 
 .lab_info:first-letter{
   margin-left: 10px;
+}
+
+.top-buffer { margin-top:25px; }
+
+.profile {
+    border-radius:90%
 }
