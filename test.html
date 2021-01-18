@@ -80,8 +80,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <h2>Animated Modal with Header and Footer</h2>
 
+
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+<input type="image" src="./img/thumbnail/escapeloom.png" class="modal-link">
+<input type="image" src="./img/thumbnail/escapeloom.png" class="modal-link">
+
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -108,14 +111,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btns = document.getElementsByClassName("modal-link");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+for(var i=0; i<btns.length; i++){
+  btns[i].onclick = function() {
   modal.style.display = "block";
+  }
 }
 
 // When the user clicks on <span> (x), close the modal
