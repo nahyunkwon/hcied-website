@@ -30,6 +30,16 @@ a#urlStyle:hover {
   background-color: #fff;
 }
 
+.btn-info {
+    background:    #b4a7d6;
+    border-radius: 4px;
+    /* width:         60px;
+    height:        25px; */
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal normal "Open Sans", sans-serif;
+    text-align:    center;
+}
 div.card-cus > h5.card-title.card-title-cus {
   overflow: hidden;
   display: -webkit-box;
