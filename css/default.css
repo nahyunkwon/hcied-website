@@ -149,3 +149,14 @@ article .container-fluid#box {
   background-color: #fff;
   color: black;
 }
+
+.bib {
+    background-color: lightgrey;
+    overflow:scroll;
+    height:70px;
+    padding-top:5px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius:10px;
+}

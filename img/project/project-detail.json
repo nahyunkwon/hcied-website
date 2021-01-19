@@ -1,0 +1,110 @@
+[
+  {
+    "title": "EscapeLoom: Fabricating New Affordances for Hand Weaving",
+    "abstract": "",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "HowDIY: Towards Meta-Design Tools to Support Anyone to 3D Print Anywhere",
+    "abstract": "",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "OmniSoft: A Design Tool for Soft Objects by Example",
+    "abstract": "",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Programmable Filament: Printed Filaments for Multi-material 3D Printing",
+    "abstract": "From full-color objects to functional capacitive artifacts, 3D printing multi-materials became essential to broaden the application areas of digital fabrication. We present Programmable Filament, a novel technique that enables multi-material printing using a commodity FDM 3D printer, requiring no hardware upgrades. Our technique builds upon an existing printing technique in which multiple filament segments are printed and spliced into a single threaded filament. We propose an end-toend pipeline for 3D printing an object in multi-materials, with an introduction of the design systems for end-users. Optimized for low-cost, single-nozzle FDM 3D printers, the system is built upon our computational analysis and experiments to enhance its validity over various printers and materials to design and produce a programmable filament. Finally, we discuss application examples and speculate the future with its potential, such as custom filament manufacturing on-demand.",
+    "bibtex": "@inproceedings{10.1145/3379337.3415863,\nauthor = {Takahashi, Haruki and Punpongsanon, Parinya and Kim, Jeeeun},\ntitle = {Programmable Filament: Printed Filaments for Multi-Material 3D Printing},\nyear = {2020},\nisbn = {9781450375146},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3379337.3415863},\ndoi = {10.1145/3379337.3415863},\nabstract = {From full-color objects to functional capacitive artifacts, 3D printing multi-materials became essential to broaden the application areas of digital fabrication. We present Programmable Filament, a novel technique that enables multi-material printing using a commodity FDM 3D printer, requiring no hardware upgrades. Our technique builds upon an existing printing technique in which multiple filament segments are printed and spliced into a single threaded filament. We propose an end-to-end pipeline for 3D printing an object in multi-materials, with an introduction of the design systems for end-users. Optimized for low-cost, single-nozzle FDM 3D printers, the system is built upon our computational analysis and experiments to enhance its validity over various printers and materials to design and produce a programmable filament. Finally, we discuss application examples and speculate the future with its potential, such as custom filament manufacturing on-demand.},\nbooktitle = {Proceedings of the 33rd Annual ACM Symposium on User Interface Software and Technology},\npages = {1209–1221},\nnumpages = {13},\nkeywords = {programmable matters, multiple materials, fused deposition modeling, 3d printing},\nlocation = {Virtual Event, USA},\nseries = {UIST '20}\n}",
+    "acmref": "Haruki Takahashi, Parinya Punpongsanon, and Jeeeun Kim. 2020. Programmable Filament: Printed Filaments for Multi-material 3D Printing. In <i>Proceedings of the 33rd Annual ACM Symposium on User Interface Software and Technology</i> (<i>UIST '20</i>). Association for Computing Machinery, New York, NY, USA, 1209–1221. DOI:https://doi.org/10.1145/3379337.3415863"
+  },
+  {
+    "title": "Romeo: A Design Tool for Embedding Transformable Parts in 3D Models to Robotically Augment Default Functionality",
+    "abstract": "Reconfiguring shapes of objects enables transforming existing passive objects with robotic functionalities, e.g., a transformable coffee cup holder can be attached to a chair’s armrest, a piggybank can reach out an arm to ’steal’ coins. Despite the advance in end-user 3D design and fabrication, it remains challenging for non-experts to create such ‘transformables’ using existing tools due to the requirement of specific engineering knowledge such as mechanisms and robotic design. We present Romeo—a design tool for creating transformables embedded into a 3D model to robotically augment the object’s default functionalities. Romeo allows users to express at a high level, (1) which part of the object to be transformed, (2) how it moves following motion points in space, and (3) the corresponding action to be taken. Romeo then automatically generates a robotic arm embedded in the transformable part ready for fabrication. We validated Romeo with a design session where 8 participants design and create custom transformables using 3D objects of their own choice.",
+    "bibtex": "@inbook{10.1145/3419249.3420068,\nauthor = {Berman, Alexander and Quek, Francis and Woodward, Robert and Okundaye, Osazuwa and Kim, Jeeeun},\ntitle = {“Anyone Can Print”: Supporting Collaborations with 3D Printing Services to Empower Broader Participation in Personal Fabrication},\nyear = {2020},\nisbn = {9781450375795},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3419249.3420068},\nabstract = { Broader participation in 3D printing may be facilitated through printing services that insulate clients from the costs and detailed technical knowledge necessary to operate and maintain printers. However, newcomers to 3D printing encounter barriers and challenges even before gaining access to printing facilities. This paper explores the challenges and barriers newcomers encounter when identifying printing opportunities and when learning how to specify 3D printing ideas through observations of stakeholders (n=20) in two university 3D printing shops, and through a focused lab study investigating how to introduce newcomers individually to 3D printing (n=21). We adopt Olsons and Olson’s framework for remote collaborations, proposed in “Distance Matters”, to analyze the sociotechnical requirements for initiating collaborations with 3D printing services. We found that newcomers often require prior guidance towards 3D printing procedures and websites before establishing what to print in collaboration with 3D printing services. Finally, we discuss how future printing processes and computational systems may empower a future where Anyone Can Print.},\nbooktitle = {Proceedings of the 11th Nordic Conference on Human-Computer Interaction: Shaping Experiences, Shaping Society},\narticleno = {1},\nnumpages = {13}\n}",
+    "acmref": ""
+  },
+  {
+    "title": "Anyone Can Print\": Supporting Collaborations with 3D Printing Services to Empower Broader Participation in Personal Fabrication",
+    "abstract": "Broader participation in 3D printing may be facilitated through printing services that insulate clients from the costs and detailed technical knowledge necessary to operate and maintain printers. However, newcomers to 3D printing encounter barriers and challenges even before gaining access to printing facilities. This paper explores the challenges and barriers newcomers encounter when identifying printing opportunities and when learning how to specify 3D printing ideas through observations of stakeholders (n=20) in two university 3D printing shops, and through a focused lab study investigating how to introduce newcomers individually to 3D printing (n=21). We adopt Olsons and Olson’s framework for remote collaborations, proposed in “Distance Matters”, to analyze the sociotechnical requirements for initiating collaborations with 3D printing services. We found that newcomers often require prior guidance towards 3D printing procedures and websites before establishing what to print in collaboration with 3D printing services. Finally, we discuss how future printing processes and computational systems may empower a future where Anyone Can Print.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "3D Printed Fabric: Techniques for Design and 3D Weaving Programmable Textiles",
+    "abstract": "We present a technique for fabricating soft and flexible textiles using a consumer grade fused deposition modeling (FDM) 3D printer. By controlling the movement of the print header, the FDM alternately weaves the stringing fibers across a row of pillars. Owing to the structure of the fibers, which supports and strengthens the pillars from each side, a 3D printer can print a thin sheet of fabric in an upright position while the fibers are being woven. In addition, this technique enables users to employ materials with various colors and/or properties when designing a pattern, and to prototype an interactive object using a variety of off-the-shelf materials such as a conductive filament. We also describe a technique for weaving textiles and introduce a list of parameters that enable users to design their own textile variations. Finally, we demonstrate examples showing the feasibility of our approach as well as numerous applications integrating printed textiles in a custom object design.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Robiot: A Design Tool for Actuating Everyday Objects with Automatically generated 3D Printable Mechanisms",
+    "abstract": "Users can now easily communicate digital information with an Internet of Things; in contrast, there remains a lack of support to automate physical tasks that involve legacy static objects, e.g., adjusting a desk lamp’s angle for optimal brightness, turning on/off a manual faucet when washing dishes, sliding a window to maintain a preferred indoor temperature. Automating these simple physical tasks has the potential to improve people’s quality of life, which is particularly important for people with a disability or in situational impairment. We present Robiot—a design tool for generating mechanisms that can be attached to, motorized, and actuating legacy static objects to perform simple physical tasks. Users only need to take a short video manipulating an object to demonstrate an intended physical behavior. Robiot then extracts requisite parameters and automatically generates 3D models of the enabling actuation mechanisms by performing a scene and motion analysis of the 2D video in alignment with the object’s 3D model. In an hour-long design session, six participants used Robiot to actuate seven everyday objects, imbuing them with the robotic capability to automate various physical tasks.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "3D Pen + 3D Printer: Exploring the Role of Human and Fabrication Machine in Creative Making",
+    "abstract": "The emergence of a 3D pen brings 3D modeling from a screenbased computer-aided design (CAD) system and 3D printing to direct and rapid crafting by 3D doodling. However, 3D doodling remains challenging, requiring craft skills to rapidly express an idea, which is critical in creative making. We explore a new process of 3D modeling using 3D pen + 3D printer. Our pilot study shows that users need support to reduce the number of non-creative tasks to explore a wide design strategy. With the opportunity to invent a new 3D modeling process that needs to incorporate both a pen and printer, we propose techniques and a system that empower users to print while doodling to focus on creative exploration. Our user study shows that users can create diverse 3D models using a pen and printer. We discuss the roles of the human and fabrication machine for the future of fabrication.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Mechamagnets: Designing and Fabricating Haptic and Functional Physical Inputs with Embedded Magnets",
+    "abstract": "We present Mechamagnets, a technique for facilitating the design and fabrication of haptic and functional inputs for physical interfaces. This technique consists of a set of 3D printed spatial constraints which facilitate different physical movements, as well as unpowered haptic profiles created by embedding static magnets in 3D printed parts. We propose the Mechamagnets taxonomy to map the design space of this technique for designers and makers. Furthermore, we leverage the use of magnets by instrumenting these objects with linear Hall effect sensors to create functional digital inputs. We showcase Mechamagnets with a series of novel physical interfaces made with this technique.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Compositional 3D Printing: Expanding & Supporting Workflows Towards Compositional 3D Printing",
+    "abstract": "We present Compositional 3D Printing, recasting the 3D printer as a tool for expression that responds to real-time design decisions, analogous to composing a piece of music using a mixer. Our paradigm supports a wide range of inputs and interactions for designers, to be used in the moment; not only before printing, but anytime during production. We propose the design space of this digital fabrication paradigm, and outline methods and technical details with which researchers and practitioners can expand this space.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "CraftML: 3D Modeling is Web Programming",
+    "abstract": "We explore web programming as a new paradigm for programmatic 3D modeling. Most existing approaches subscribe to the imperative programming paradigm. While useful, there exists a gulf of evaluation between procedural steps and the intended structure. We present CraftML, a language providing a declarative syntax where the code is the structure. CraftML offers a rich set of programming features familiar to web developers of all skill levels, such as tags, hyperlinks, document object model, cascade style sheet, JQuery, string interpolation, template engine, data injection, and scalable vector graphics. We develop an online IDE to support CraftML development, with features such as live preview, search, module import, and parameterization. Using examples and case studies, we demonstrate that CraftML offers a low floor for beginners to make simple designs, a high ceiling for experts to build complex computational models, and wide walls to support many application domains such as education, data physicalization, tactile graphics, assistive devices, and mechanical components.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Understanding Uncertainty in Measurement and Accommodating its Impact in 3D Modeling and Printing",
+    "abstract": "The growing accessibility of 3D printing to everyday users has led to rapid adoption, sharing of 3D models on sites such as thingiverse.com, and visions of a future in which customization is a norm and 3D printing can solve a variety of real world problems. However, in practice, creating models is difficult and many end users simply print models created by others. In this article, we explore a specific area of model design that is a challenge for end users – measurement. When a model must conform to a specific real world goal once printed, it is important that that goal is precisely specified. We demonstrate that measurement errors are a significant (yet often overlooked) challenge for end users through a systematic study of the sources and types of measurement errors. We argue for a new design principle—accommodating measurement error—that designers as well as novice modelers should to use at design time. We offer two strategies—buffer insertion and replacement of minimal parts—to help designers, as well as novice modelers, to build models that are robust to measurement error. We argue that these strategies can reduce the need for and costs of iteration and demonstrate their use in a series of printed objects.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Machines as Co-Designers: A Fiction on the Future of Human-Fabrication Machine Interaction",
+    "abstract": "While current fabrication technologies have led to a wealth of techniques to create physical artifacts of virtual designs, they require unidirectional and constraining interaction workflows. Instead of acting as intelligent agents that support human’s natural tendencies to iteratively refine ideas and experiment, today’s fabrication machines function as output devices. In this work, we argue that fabrication machines and tools should be thought of as live collaborators to aid in-situ creativity, adapting physical dynamics come from unique materiality and/or machine specific parameters. Through a series of design narratives, we explore Human-FabMachine Interaction (HFI), a novel viewpoint from which to reflect on the importance of (i) interleaved design thinking and refinement during fabrication, (ii) enriched methods of interaction with fabrication machines regardless of skill level, and (iii) concurrent human and machine interaction.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Facade: Auto-generating Tactile Interfaces to Appliances",
+    "abstract": "Common appliances have shifted toward flat interface panels, making them inaccessible to blind people. Although blind people can label appliances with Braille stickers, doing so generally requires sighted assistance to identify the original functions and apply the labels. We introduce Facade—a crowdsourced fabrication pipeline to help blind people independently make physical interfaces accessible by adding a 3D printed augmentation of tactile buttons overlaying the original panel. Facade users capture a photo of the appliance with a readily available fiducial marker (a dollar bill) for recovering size information. This image is sent to multiple crowd workers, who work in parallel to quickly label and describe elements of the interface. Facade then generates a 3D model for a layer of tactile and pressable buttons that fits over the original controls. Finally, a home 3D printer or commercial service fabricates the layer, which is then aligned and attached to the interface by the blind person. We demonstrate the viability of Facade in a study with 11 blind participants.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Reprise: A Design Tool for Specifying, Generating, and Customizing 3D Printable Adaptations on Everyday Objects",
+    "abstract": "Everyday tools and objects often need to be customized for an unplanned use or adapted for specific user, such as adding a bigger pull to a zipper or a larger grip for a pen. The advent of low-cost 3D printing offers the possibility to rapidly construct a wide range of such adaptations. However, while 3D printers are now affordable enough for even home use, the tools needed to design custom adaptations normally require skills that are beyond users with limited 3D modeling experience. In this paper, we describe Reprise–a design tool for specifying, generating, customizing and fitting adaptations onto existing household objects. Reprise allows users to express at a high level what type of action is applied to an object. Based on this high level specification, Reprise automatically generates adaptations. Users can use simple sliders to customize the adaptations to better suit their particular needs and preferences, such as increasing the tightness for gripping, enhancing torque for rotation, or making a larger base for stability. Finally, Reprise provides a toolkit of fastening methods and support structures for fitting the adaptations onto existing objects. To validate our approach, we used Reprise to replicate 15 existing adaptation examples, each of which represents a specific category in a design space distilled from an analysis of over 3000 cases found in the literature and online communities. We believe this work would benefit makers and designers for prototyping lifehacking solutions and assistive technologies.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Toward 3D-Printed Movable Tactile Pictures for Children with Visual Impairments",
+    "abstract": "Many children's books contain movable pictures with elements that can be physically opened, closed, pushed, pulled, spun, flipped, or swung. But these tangible, interactive reading experiences are inaccessible to children with visual impairments. This paper presents a set of 3D-printable models designed as building blocks for creating movable tactile pictures that can be touched, moved, and understood by children with visual impairments. Examples of these models are canvases, connectors, hinges, spinners, sliders, lifts, walls, and cutouts. They can be used to compose movable tactile pictures to convey a range of spatial concepts, such as in/out, up/down, and high/low. The design and development of these models were informed by three formative studies including 1) a survey on popular moving mechanisms in children's books and 3D-printed parts to implement them, 2) two workshops on the process creating movable tactile pictures by hand (e.g., Lego, Play-Doh), and 3) creation of wood-based prototypes and an informal testing on sighted preschoolers. Also, we propose a design language based on XML and CSS for specifying the content and structure of a movable tactile picture. Given a specification, our system can generate a 3D-printable model. We evaluate our approach by 1) transcribing six children's books, and 2) conducting six interviews on domain experts including four teachers for the visually impaired, one blind adult, two publishers at the National Braille Press, a renowned tactile artist, and a librarian.",
+    "bibtex": "",
+    "acmref": ""
+  },
+  {
+    "title": "Seen Music: Ambient Music Data Visualization for Children with Hearing Impairments",
+    "abstract": "",
+    "bibtex": "",
+    "acmref": ""
+  }
+]
