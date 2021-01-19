@@ -11,6 +11,8 @@ var span = document.getElementsByClassName("close")[0];
 for(var i=0; i<btns.length; i++){
   btns[i].onclick = function() {
   modal.style.display = "block";
+  var project = document.getElementsByClassName("card-text")[i].innerText;
+  console.log(project);
   }
 }
 

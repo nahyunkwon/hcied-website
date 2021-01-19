@@ -73,12 +73,19 @@ article .container-fluid#box {
     padding-bottom:15px;
 }
 
+.modal-link-not-published {
+    height:200px;
+    width:320px;
+    padding-bottom:15px;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 200px; /* Location of the box */
+  padding-bottom:100px;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -129,7 +136,7 @@ article .container-fluid#box {
   cursor: pointer;
 }
 
-.modal-header {
+.modal-title {
   padding: 2px 16px;
   background-color: #fff;
   color: black;
@@ -137,7 +144,7 @@ article .container-fluid#box {
 
 .modal-body {padding: 2px 16px;}
 
-.modal-footer {
+.modal-tail {
   padding: 2px 16px;
   background-color: #fff;
   color: black;
