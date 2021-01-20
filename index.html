@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/default.css">
     <link rel="stylesheet" type="text/css" href="./css/homeStyle.css">
+    <link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+    <script src="js/jquery.js"></script>
 
 
   </head>
@@ -64,7 +66,8 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/escapeloom.png" style="height:200px;width:320px;padding-bottom:15px">
+                <!-- If the paper is not yet published, set the class name modal-link-not-published not to generate modal window. -->
+                <input type="image" src="./img/thumbnail/escapeloom.png" class="modal-link-not-published" id="17">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'21</a></h5>
                 <p class="card-text">EscapeLoom: Fabricating New Affordances for Hand Weaving</p>
                 <a href="#" class="btn btn-primary">PDF</a>
@@ -76,7 +79,7 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/howDIY.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/howDIY.png" class="modal-link-not-published" id="16">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">IUI'21</a></h5>
                 <p class="card-text">HowDIY: Towards Meta-Design Tools to Support Anyone to 3D Print Anywhere</p>
                 <a href="#" class="btn btn-primary">PDF</a>
@@ -88,7 +91,7 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/omnisoft.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/omnisoft.png" class="modal-link-not-published" id="15">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">TEI'21</a></h5>
                 <p class="card-text">OmniSoft: A Design Tool for Soft Objects by Example</p>
                 <a href="#" class="btn btn-primary">PDF</a>
@@ -102,11 +105,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/filament.png" style="height:200px;width:320px;padding-bottom:15px">
-                <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'20</a></h5>
+                <input type="image" src="./img/thumbnail/filament.png" class="modal-link" id="14">
+                <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'20</a> *SIGCHI Best of UIST Honorable Mention Award</h5>
                 <p class="card-text">Programmable Filament: Printed Filaments for Multi-material 3D Printing</p>
                 <a href="http://www.jeeeunkim.com/papers/programmableFilament-UIST20.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/abs/10.1145/3379337.3415863" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -114,11 +117,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/romeo.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/romeo.png" class="modal-link" id="13">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'20</a></h5>
                 <p class="card-text">Romeo: A Design Tool for Embedding Transformable Parts in 3D Models to Robotically Augment Default Functionality</p>
                 <a href="http://www.jeeeunkim.com/papers/Romeo-UIST20.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3379337.3415826" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -127,11 +130,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/anyone.jpg" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/anyone.jpg" class="modal-link" id="12">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">NordiCHI'20</a></h5>
                 <p class="card-text">"Anyone Can Print": Supporting Collaborations with 3D Printing Services to Empower Broader Participation in Personal Fabrication</p>
                 <a href="http://www.jeeeunkim.com/papers/Anyonecanprint-NordiCHI20.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3419249.3420068" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -139,11 +142,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/printedfabric.jpg" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/printedfabric.jpg" class="modal-link" id="11">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'19</a></h5>
-                <p class="card-text">3D Printed Fabric: Techniques for Design and 3D Weaving Programmable Textiles.</p>
+                <p class="card-text">3D Printed Fabric: Techniques for Design and 3D Weaving Programmable Textiles</p>
                 <a href="http://www.jeeeunkim.com/papers/3dprintedfabric.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3332165.3347896" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -151,11 +154,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/robiot.jpg" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/robiot.jpg" class="modal-link" id="10">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'19</a></h5>
-                <p class="card-text">Robiot: A Design Tool for Actuating Everyday Objects with Automatically generated 3D Printable Mechanisms. </p>
+                <p class="card-text">Robiot: A Design Tool for Actuating Everyday Objects with Automatically generated 3D Printable Mechanisms</p>
                 <a href="http://www.jeeeunkim.com/papers/uist2019_final_version.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3332165.3347894" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -163,11 +166,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/penprinter.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/penprinter.png" class="modal-link" id="9">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'19</a></h5>
-                <p class="card-text">3D Pen + 3D Printer: Exploring the Role of Human and Fabrication Machine in Creative Making.</p>
+                <p class="card-text">3D Pen + 3D Printer: Exploring the Role of Human and Fabrication Machine in Creative Making</p>
                 <a href="http://www.jeeeunkim.com/papers/chi19-3dpenprinter.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3290605.3300525" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -175,11 +178,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/Mechamagnets.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/mechamagnets.png" class="modal-link" id="8">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">TEI'19</a></h5>
-                <p class="card-text">Mechamagnets: Designing and Fabricating Haptic and Functional Physical Inputs with Embedded Magnets. </p>
+                <p class="card-text">Mechamagnets: Designing and Fabricating Haptic and Functional Physical Inputs with Embedded Magnets</p>
                 <a href="http://www.jeeeunkim.com/papers/tei19-mechamagnet.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3294109.3295622" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -187,11 +190,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/compositional.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/compositional.png" class="modal-link" id="7">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">SCF'18</a></h5>
-                <p class="card-text">Compositional 3D Printing: Expanding & Supporting Workflows Towards Compositional 3D Printing. </p>
+                <p class="card-text">Compositional 3D Printing: Expanding & Supporting Workflows Towards Compositional 3D Printing</p>
                 <a href="http://www.jeeeunkim.com/papers/SCF2018.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3213512.3213518" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -199,11 +202,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/craftml.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/craftml.png" class="modal-link" id="6">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'18</a></h5>
-                <p class="card-text">CraftML: 3D Modeling is Web Programming. </p>
+                <p class="card-text">CraftML: 3D Modeling is Web Programming</p>
                 <a href="http://www.jeeeunkim.com/papers/craftml.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3173574.3174101" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -211,11 +214,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/Uncertainty.jpg" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/Uncertainty.jpg" class="modal-link" id="5">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">DIS'17</a></h5>
-                <p class="card-text">Understanding Uncertainty in Measurement and Accommodating its Impact in 3D Modeling and Printing.</p>
+                <p class="card-text">Understanding Uncertainty in Measurement and Accommodating its Impact in 3D Modeling and Printing</p>
                 <a href="http://www.jeeeunkim.com/papers/Uncertainty_DIS2017.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3064663.3064690" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -223,11 +226,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/machinedesigner.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/machinedesigner.png" class="modal-link" id="4">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'17</a> Alt.CHI</h5>
-                <p class="card-text">Machines as Co-Designers: A Fiction on the Future of Human-Fabrication Machine Interaction. </p>
+                <p class="card-text">Machines as Co-Designers: A Fiction on the Future of Human-Fabrication Machine Interaction</p>
                 <a href="http://www.jeeeunkim.com/papers/chi2017-alt.chi-hfi-Kim.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/3027063.3052763" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -235,11 +238,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/facade.jpg" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/facade.jpg" class="modal-link" id="3">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'17</a></h5>
-                <p class="card-text">Facade: Auto-generating Tactile Interfaces to Appliances.</p>
+                <p class="card-text">Facade: Auto-generating Tactile Interfaces to Appliances</p>
                 <a href="http://www.jeeeunkim.com/papers/Facade_CHI_2017_Accessible.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/2982142.2982187" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -247,7 +250,7 @@
           <!-- <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/FoldMecha.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/FoldMecha.png" class="modal-link">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">TEI'17</a></h5>
                 <p class="card-text">FoldMecha: Exploratory Design and Engineering of Mechanical Papercraft.</p>
                 <a href="#" class="btn btn-primary">PDF</a>
@@ -259,11 +262,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/reprise.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/reprise.png" class="modal-link" id="2">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">UIST'16</a></h5>
-                <p class="card-text">Reprise: A Design Tool for Specifying, Generating, and Customizing 3D Printable Adaptations on Everyday Objects.</p>
+                <p class="card-text">Reprise: A Design Tool for Specifying, Generating, and Customizing 3D Printable Adaptations on Everyday Objects</p>
                 <a href="http://www.jeeeunkim.com/papers/reprise.pdf" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/2984511.2984512" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -271,11 +274,11 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/Moveable.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/moveable.png" class="modal-link" id="1">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">CHI'15</a></h5>
-                <p class="card-text">Toward 3D-Printed Movable Tactile Pictures for Children with Visual Impairments..</p>
+                <p class="card-text">Toward 3D-Printed Movable Tactile Pictures for Children with Visual Impairments</p>
                 <a href="http://dl.acm.org/citation.cfm?id=2702144&CFID=505687334&CFTOKEN=51733596" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <a href="https://dl.acm.org/doi/10.1145/2702123.2702144" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
@@ -283,22 +286,45 @@
           <div class="col-sm-4 col-cus">
             <div class="card">
               <div class="card-body card-cus">
-                <img src="./img/thumbnail/seenmusic.png" style="height:200px;width:320px;padding-bottom:15px">
+                <input type="image" src="./img/thumbnail/seenmusic.png" class="modal-link" id="0">
                 <h5 class="card-title card-title-cus"><a href="#" class="btn btn-primary">IDC'15</a></h5>
-                <p class="card-text">Seen Music: Ambient Music Data Visualization for Children with Hearing Impairments.</p>
-                <a href="#" class="btn btn-primary">PDF</a>
-                <a href="#" class="btn btn-primary">DOI</a>
+                <p class="card-text">Seen Music: Ambient Music Data Visualization for Children with Hearing Impairments</p>
+                <!--<a href="#" class="btn btn-primary">PDF</a>-->
+                <a href="https://dl.acm.org/doi/10.1145/2771839.2771870" class="btn btn-primary">DOI</a>
                 <a href="#" class="btn btn-primary">Video</a>
               </div>
             </div>
           </div>
         </div>
 
+
       </div>
     </section>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-title">
+          <span class="close">&times;</span>
+
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-tail">
+
+        </div>
+      </div>
+
+    </div>
+
+  <script src="js/modal.js"></script>
+
   </body>
 </html>
