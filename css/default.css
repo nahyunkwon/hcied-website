@@ -68,14 +68,22 @@ article .container-fluid#box {
   width: auto;
 }
 .modal-link {
-    height:200px;
-    width:320px;
+    max-height:200px;
+    max-width:320px;
+    width:100%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
     padding-bottom:15px;
 }
 
 .modal-link-not-published {
-    height:200px;
-    width:320px;
+    max-height:200px;
+    max-width:320px;
+    width:100%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
     padding-bottom:15px;
 }
 
