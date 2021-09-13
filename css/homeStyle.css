@@ -1,6 +1,9 @@
 .card-deck {
   padding: 10px 0;
 }
+.card{
+    min-height:420px;
+}
 
 .menu_title {
   text-align: center;
