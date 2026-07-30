@@ -1,624 +1,466 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Jeeeun Kim</title>
-
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
-</head>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jeeeun Kim — HCI &amp; Digital Fabrication</title>
+<meta name="description" content="Jeeeun Kim, Associate Professor at Texas A&amp;M. HCI &amp; Digital Fabrication." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
 <style>
-
-	a {
-		target: _blank;
-	}
-
-	img.thumb {
-		width: 220px; 
-		height:120px;
-		ALIGN: left; 
-		HSPACE: 15;
-		VSPACE: 10;
-	}
-
-	pre {
-		border: none;
-		background-color: white;
-/*		white-space: pre-wrap;       
-		overflow-wrap: normal;
-		float: left;
-		word-break: keep-all;
-		font-family: barlow, sans-serif;
-		font-size: 13px;
-		line-height: 1.5;
-		padding-top: 5px;*/
-	}
-
-div.headline {
-	border: 1;
-/*	font-family: arial, bold;*/
-
-	font-family: helvetica, sans-serif;
-	font-size: 20px;
+:root{
+  --ink:#181613;--ink-2:#3c382f;--soft:#6f695c;
+  --paper:#ffffff;--surface:#f6f5f2;--line:rgba(24,22,19,.13);--line-2:rgba(24,22,19,.07);
+  --accent:#7e2230;--accent-press:#561520;--accent-tint:rgba(126,34,48,.10);
+  --maxw:1200px;--ease:cubic-bezier(.22,.61,.36,1);--r:10px;
 }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;font-size:16.5px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit}a:hover{color:var(--accent)}
+::selection{background:var(--accent);color:#fff}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;letter-spacing:-.012em;line-height:1.05;margin:0}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 
-div.title {
-	background-color: #800000;
-	font-family: Gill Sans, sans-serif;
-/*	font-family: hevetica, sans-serif;*/
-	font-size: 25px;
-	line-height: 1.5;
-	padding-top: 5px;
-	padding-left: 20px;
-	color: white;
-	height: 50px;
+/* ---- progress ---- */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;z-index:120}
+.progress>span{display:block;height:100%;width:0;background:var(--accent)}
+
+/* ---- nav ---- */
+nav{position:fixed;top:0;left:0;right:0;z-index:110;
+  background:rgba(255,255,255,.88);backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .3s}
+nav.stuck{border-bottom-color:var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:11px 32px;display:flex;align-items:center;gap:24px}
+.brand{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:18px;text-decoration:none;
+  display:flex;align-items:center;gap:9px;letter-spacing:0}
+.brand .dot{width:10px;height:10px;border-radius:2px;background:var(--accent);transition:transform .3s var(--ease)}
+.brand:hover .dot{transform:rotate(45deg)}
+.nav-links{margin-left:auto;display:flex;gap:2px}
+.nav-links a{font-family:"Newsreader",Georgia,serif;font-size:15px;text-decoration:none;color:var(--soft);
+  padding:6px 11px;border-radius:7px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--ink);background:var(--surface)}
+.nav-cta{color:var(--accent)!important}
+.nav-cta:hover{background:var(--accent-tint)!important}
+
+/* ---- TOP SPLIT: bio 2/3 + news 1/3 ---- */
+.top-split{padding:84px 0 0;border-bottom:1px solid var(--line)}
+.top-inner{max-width:var(--maxw);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr;gap:0;align-items:start}
+.bio-col{padding-right:52px;padding-bottom:44px;border-right:1px solid var(--line)}
+.news-col{padding-left:36px;padding-top:8px;padding-bottom:36px}
+
+/* bio */
+.eyebrow{font-size:14px;color:var(--soft);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.eyebrow b{color:var(--accent)}
+.eyebrow .rule{height:1px;flex:1;background:var(--line);max-width:80px}
+h1.name{font-size:clamp(34px,4.4vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.0}
+.reveal-clip{clip-path:inset(0 0 100% 0);transition:clip-path 1s var(--ease)}
+.reveal-clip.show{clip-path:inset(0 0 0 0)}
+
+.portrait-row{display:flex;align-items:flex-start;gap:28px;margin:0 0 22px}
+.namecard{flex:1;min-width:0;padding-top:2px}
+.role-line{font-size:14px;color:var(--ink-2);line-height:1.5;margin:10px 0 0;max-width:52ch}
+.role-line a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-tint)}
+.role-line a:hover{border-bottom-color:var(--accent)}
+.aim{font-size:16px;font-style:italic;color:var(--ink);line-height:1.45;margin:14px 0 0;max-width:52ch;
+  padding-left:14px;border-left:2px solid var(--accent)}
+.research-para{font-size:14.5px;color:var(--ink-2);line-height:1.62;max-width:85ch;margin:0 0 14px}
+.research-para:last-of-type{margin-bottom:0}
+.portrait .frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;width:132px}
+.portrait .frame img{width:132px;height:152px;object-fit:cover;filter:grayscale(.1)}
+.portrait .pmeta{margin-top:8px;font-size:13px;color:var(--soft);font-style:italic;line-height:1.4}
+.portrait .pmeta .live{display:flex;align-items:center;gap:6px}
+.portrait .pmeta .live i{width:6px;height:6px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 0 var(--accent);animation:pulse 2.4s infinite;flex:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(126,34,48,.5)}70%{box-shadow:0 0 0 7px rgba(126,34,48,0)}100%{box-shadow:0 0 0 0 rgba(126,34,48,0)}}
+
+.bio-text{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:54ch}
+.bio-text a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-tint);transition:border-color .2s}
+.bio-text a:hover{border-bottom-color:var(--accent)}
+
+.labs{display:flex;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap}
+.labs img{height:28px;width:auto;opacity:.82;filter:grayscale(15%);transition:opacity .2s,filter .2s}
+.labs a:hover img{opacity:1;filter:none}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.btn{font-family:"Newsreader",Georgia,serif;font-size:14.5px;text-decoration:none;
+  padding:8px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;
+  transition:transform .18s var(--ease),background .2s,border-color .2s,color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-solid{background:var(--accent);color:#fff}
+.btn-solid:hover{background:var(--accent-press)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--surface)}
+.btn svg{width:13px;height:13px}
+
+/* ---- news column ---- */
+.news-col .col-head{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.02em;
+  margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.news-list .news-item{display:grid;grid-template-columns:52px 1fr;gap:12px;
+  padding:7px 0;border-bottom:1px solid var(--line-2);align-items:baseline}
+.news-item .date{font-size:13px;color:var(--accent);font-weight:600}
+.news-item .txt{font-size:14px;color:var(--ink-2);line-height:1.45}
+.news-item.feat .txt{color:var(--ink);font-weight:500}
+.news-item .txt a{color:var(--accent);text-decoration:none}
+.news-item .txt a:hover{text-decoration:underline;text-underline-offset:2px}
+.news-item.hide{display:none}
+.pill{font-size:11px;font-style:italic;color:var(--accent);margin-right:5px}
+.more-news{margin-top:11px}
+.more-news button{font-family:"Newsreader",Georgia,serif;font-size:13px;font-style:italic;
+  color:var(--accent);background:none;border:none;border-bottom:1px dashed var(--accent-tint);
+  padding:0 0 1px;cursor:pointer;transition:border-color .2s}
+.more-news button:hover{border-bottom-color:var(--accent)}
+
+/* ---- research themes ---- */
+.themes-section{padding:40px 0 36px;border-bottom:1px solid var(--line)}
+.sec-label{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.02em;margin-bottom:16px}
+.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.theme{background:var(--paper);padding:18px 20px;transition:background .25s}
+.theme:hover{background:var(--surface)}
+.theme .tn{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:7px}
+.theme h3{font-size:16px;line-height:1.2;letter-spacing:-.01em;margin-bottom:6px;font-weight:600}
+.theme p{font-size:14px;color:var(--ink-2);line-height:1.5;margin:0}
+.theme .ex{margin-top:10px;font-size:12.5px;font-style:italic;color:var(--soft)}
+
+/* ---- publications ---- */
+.pubs-section{padding:36px 0 44px;border-bottom:1px solid var(--line)}
+.pub-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:16px;flex-wrap:wrap}
+.pub-head .sec-label{margin-bottom:0}
+.pub-search{position:relative;min-width:200px}
+.pub-search input{font-family:"Newsreader",Georgia,serif;font-size:14.5px;
+  padding:7px 12px 7px 32px;border:1px solid var(--line);border-radius:7px;
+  background:var(--surface);color:var(--ink);outline:none;width:100%;transition:border-color .2s,box-shadow .2s}
+.pub-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.pub-search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--soft)}
+.pub-count{font-size:13px;font-style:italic;color:var(--soft)}
+.pub-list{}
+.pub{display:grid;grid-template-columns:100px 1fr;gap:18px;
+  padding:11px 4px;border-top:1px solid var(--line-2);align-items:start;transition:background .2s,padding-left .2s}
+.pub:first-child{border-top-color:var(--line)}
+.pub:hover{background:var(--surface);padding-left:10px}
+.pub-thumb{width:100px;height:70px;flex:none;overflow:hidden;border:1px solid var(--line);
+  background:var(--surface);border-radius:4px}
+.pub-thumb img{width:100%;height:70px;object-fit:cover;display:block;
+  transition:transform .3s var(--ease);filter:saturate(.95)}
+.pub:hover .pub-thumb img{transform:scale(1.06)}
+.pub-body{}
+.pub-title{font-size:15.5px;font-weight:600;line-height:1.28;margin:0 0 3px;letter-spacing:-.01em;color:var(--ink)}
+.pub-venue{font-size:13px;color:var(--ink-2);line-height:1.4}
+.pub-meta{display:flex;gap:6px;align-items:center;margin-top:7px;flex-wrap:wrap;font-size:12px}
+.vtag{color:var(--soft);border:1px solid var(--line);padding:1px 8px;border-radius:4px;font-style:italic}
+.vtag.year{color:var(--accent);border-color:var(--accent-tint);font-style:normal;font-weight:600}
+.lnk{color:var(--accent);border:1px solid transparent;padding:1px 7px;border-radius:4px;
+  text-decoration:none;transition:background .18s}
+.lnk:hover{background:var(--accent-tint)}
+.award-flag{color:#8a6000;border:1px solid #c8960033;padding:1px 7px;border-radius:4px;font-style:italic}
+.pub.hide{display:none}
+.noresult{padding:20px 4px;font-size:14px;font-style:italic;color:var(--soft);display:none}
+
+/* ---- contact ---- */
+.contact-section{padding:36px 0 48px}
+.contact-card{background:var(--ink);color:#fff;border-radius:12px;padding:34px 40px;position:relative;overflow:hidden}
+.contact-card h2{font-size:clamp(26px,3.5vw,38px);font-weight:600;letter-spacing:-.015em;color:#fff;max-width:18ch}
+.contact-card p{color:#c9c6bd;max-width:52ch;margin:12px 0 0;font-size:15px}
+.contact-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.contact-card .btn-solid{background:var(--accent)}
+.contact-card .btn-solid:hover{background:#9c3a48}
+.contact-card .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.contact-card .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+
+footer{padding:24px 0 36px;border-top:1px solid var(--line)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  font-size:13px;font-style:italic;color:var(--soft)}
+.foot-in a{color:var(--ink-2);text-decoration:none}
+.foot-in a:hover{color:var(--accent)}
+
+/* reveal */
+.rise{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rise.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .top-split{grid-template-columns:1fr;padding-top:76px}
+  .bio-col{padding-right:0;border-right:none;border-bottom:1px solid var(--line);padding-bottom:32px}
+  .news-col{padding-left:0;padding-top:28px}
+  .themes{grid-template-columns:repeat(2,1fr)}
 }
-
-div.horizon-align {
-/*	float: left;*/
-	width: 75%;
-	display: table;
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .themes{grid-template-columns:1fr}
+  .pub{grid-template-columns:80px 1fr;gap:14px}
+  .pub-thumb{width:80px;height:58px}
+  .pub-head{flex-direction:column;gap:10px;align-items:flex-start}
 }
-
-div.left {
-	VSPACE: 10;
-	display: table-cell;
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal-clip{clip-path:none!important}
+  .rise{opacity:1!important;transform:none!important}
 }
-
-div.right {
-	position: relative;
-	width: 80%;
-	display: table-cell;
-}
-
-
-div.links {
-	align: center;
-	width: auto;
-	overflow: auto;
-	position: absolute;
-	top: 300px;
-}
-
-div.info {
-	position: absolute;
-	top:	3%;
-	left:	10%;
-	width:	80%;
-/*	height: 25%;*/
-	overflow: auto;
-}
-
-div.news {
-	overflow-y: auto;
-	position: absolute;
-	top:	45%;
-	left:	10%;
-	width:	80%;
-	height: 19%;
-}
-
-div.papers {
-/*	font-family: Catamaran, sans-serif;*/
-	position: absolute;
-	top:	69%;
-	left:	10%;
-	width:	90%;
-/*	height: 60%;*/
-	overflow-y: auto;
-}
-
-/*
-div.awards {
-position: absolute;
-width: 60%;
-height: 20%;
-overflow-y: scroll; 
-top: 70%;
-left: 75%;
-}*/
-
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 </style>
-
+</head>
 <body>
-	<!-- <div class="title"> Jeeeun Kim | HCI & Digital Fabrication @ Texas A&M University</div> -->
 
-	
-	<!-- <div class="headline" style="position: absolute; top: 66%; left: 25%"> Awards/Honors </div> -->
+<div class="progress"><span id="bar"></span></div>
 
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><span class="dot"></span>Home</a>
+    <div class="nav-links">
+      <a href="#research">research</a>
+      <a href="#work">publications</a>
+      <a href="#contact" class="nav-cta">contact →</a>
+    </div>
+  </div>
+</nav>
 
-	<div class="info">
-		<img src="img/member/jeeeunkim.jpeg" width="170px" ALIGN="left" HSPACE="15" VSPACE="10"/> 
-		<br/>
-		Jeeeun Kim 
-		[<a href="https://scholar.google.com/citations?user=zNjEAPwAAAAJ&hl=en" target="_blank">Google Scholar</a>] 
-		[<a href="papers/CV-JeeeunKim-2026Apr.pdf" target="_blank">CV</a>] 
-		<!-- [<a href="https://txhci.uta.edu/" target="_blank">TxHCI Seminar</a>] -->
-		<br/>
-		<br/>
+<a id="top"></a>
+<main>
 
-		Assistant Professor<br/>
-		Computer Science & Engineering, Texas A&M University <br/>
-		Faculty affiliate with the <a href="https://tamids.tamu.edu/">Texas A&M Institute of Data Science (TAMIDS)</a><br/>
-		TEES Young Faculty Fellow<br/>
-		Director of <a href="http://hcied.info" target="_blank">HCIed (HCI Engineering & Design)</a> Lab <br/>
-		Founding organizer of <a href="https://txhci.uta.edu/" target="_blank">TxHCI</a> Seminar Series<br/>
-		Faculty advisor of <a href="https://www.awics.org/">Aggie Women in Computer Science (AWICS)</a> Student Organization<br/>
-	
-	
-		<a href="http://hcied.info" target="_blank"><img src="img/menu/logo-light.jpg" height="70px"/></a> &nbsp; &nbsp; &nbsp;
-		<a href="https://txhci.uta.edu/" target="_blank"><img src="img/menu/logo-txhci.png" height="70px"/></a> &nbsp; &nbsp; &nbsp;
-		<a href="https://www.awics.org/" target="_blank"><img src="img/menu/logo-AWICS.png" height="65px"/></a> &nbsp; &nbsp; &nbsp;
-		<!-- <img src="img/menu/logo-am.png" height="45px"/><br/><br/> -->
-		<br/><br/>
+<!-- ======== TOP SPLIT: bio 2/3 + news 1/3 ======== -->
+<div class="top-split">
+  <div class="top-inner">
 
-		If you are interested in working with me, please complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqRzDZXgjT7D1NuFsFwQKx_tS1grwPWIJRQMVTSlIMewKjHw/viewform?usp=sf_link" target="_blank">this form</a>, then <a href="mailto:jeeeun dot kim at tamu dot edu" target="_top">email</a> me!<br/>
+    <!-- BIO 2/3 -->
+    <div class="bio-col">
+        <div class="eyebrow"><b>HCIed Lab</b> · Texas A&amp;M University </div>
 
-	<!--<a href="https://docs.google.com/document/d/1n6MLgMCkMsRNaMMpTWJ1qcxu2cwZJc-NpPDp20RYrPQ/edit?usp=sharing" target="_blank">-->
-		<!--<a href="mailto:jeeeun.kim@tamu.edu?subject=[Research application]">drop</a> me an email with your CV, a short description about your background and your interests, and why you want to work with me </b>-->
-		<!--Jeeeun, a PhD candidate at the Computer Science Department, University of Colorado. I am also an Adobe Research Fellow.-->
-		<!--<b>I will be joining Texas A&M University CS&E as an assistant professor, starting this fall (2019). -->
-			<!-- <div class="copyright"> ©2019 Jeeeun Kim. All rights reserved. </div> -->
-		<!-- </pre> -->
-	</div>
+        <div class="portrait-row">
+          <div class="portrait">
+            <div class="frame"><img src="https://hcied.info/img/member/jeeeunkim.jpeg" alt="Portrait of Jeeeun Kim" loading="eager" id="portrait"/></div>
+            <!-- <div class="pmeta"><span class="live"><i></i>College Station, TX</span><em>Principal Investigator</em></div> -->
+          </div>
+          <div class="namecard">
+            <h1 class="name"><span class="layered reveal-clip" id="nameL">Jeeeun Kim</span></h1>
+            
+            <p class="aim">My research identifies and resolves mismatches between people and the physical world.</p>
+            <p class="role-line">Associate Professor, Computer Science &amp; Engineering <br/>
+              Director of the <a href="http://hcied.info">HCIed Lab</a> · Faculty affiliate of <a href="https://tamids.tamu.edu/">TAMIDS</a> · Founding organizer of <a href="https://txhci.uta.edu/" target="_blank">TxHCI</a> Seminar Series  · Faculty advisor of <a href="https://www.awics.org/">Aggie Women in Computer Science (AWICS)</a>.</p>
+          </div>
+        </div>
 
+        <p class="research-para">My research explores how people can adapt the physical world to their diverse abilities, tasks, and contexts. I develop end-user tools that transform passive everyday objects into adaptive interfaces capable of sensing, actuation, and context-aware behavior. My work combines AI for understanding human–object interactions with computational design and digital fabrication, enabling people to redesign and personalize the physical world. I also develop human-centric datasets that advance AI for understanding how people physically interact with objects.</p>
 
-      <section>
-        <div class="container"><p>
-	<div class="headline" style="position: absolute; top:	39%; left:	10%; padding-top:25px" > Latest News </div>
-	<div class="news" style="padding-top:10px">
-		06/25 &nbsp; FABRIC is accepted to <a href="https://www.iros25.org/" target="_blank">IROS'25 </a><br/>
-		05/25 &nbsp; Instance Detection in Open World is accepted to <a href="https://cvpr.thecvf.com/virtual/2025/index.html" target="_blank">CVPR'25 </a><br/>
-		05/25 &nbsp; LumosX is presented at <a href="https://chi2025.acm.org/" target="_blank">CHI'25 </a><br/>
-		<!-- 03/25 &nbsp; 3D Printed Kerf Structures is presented at TEI'25 <br/> -->
-		03/25 &nbsp; Honored to be named a TEES Young Faculty Fellow by the College of Engineering <br/>
-		09/24 &nbsp; Honored to be named a Montague-Center for Teaching Excellence Scholar <br/>
-		04/24 &nbsp; Thrilled to receive the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2340120&HistoricalAwards=false">NSF CAREER</a> Award! <br/>
-		04/24 &nbsp; Serving a general co-chair with <a href="https://sites.google.com/view/kaist-witlab/" target="_blank">Ian Oakley</a> for <a href="https://uist.acm.org/2025/" target="_blank">UIST'25</a><br/>
-		03/24 &nbsp; Serving a subcommittee chair (Devices, Materials, and Fabrication) for <a href="https://chi2025.acm.org/" target="_blank">CHI'25 </a><br/>
-		01/24 &nbsp; AccessLens, MorphMag, and Sustainable Unmaking (workshop) are accepted to <a href="https://chi2024.acm.org/" target="_blank">CHI'24</a> <br/>
-		01/24 &nbsp; Excited to be part of the NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2221436&HistoricalAwards=false">NRI project</a> as a Co-PI<br/>
-		01/23 &nbsp; Serving a Doctoral Consortium co-chair for <a href="https://uist.acm.org/2024/">UIST'24</a> <br/>
-		09/23 &nbsp; Excited to be part of the NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2026574&HistoricalAwards=false">FW-HTF-RM</a> project as a Co-PI<br/>
-		09/23 &nbsp; 3DPFIX is accepted to <a href="https://cscw.acm.org/2024/">CSCW'24 </a>for the first time! <br/>
-		09/23 &nbsp; HighRes Instance Detection Dataset is accepted to <a href="https://neurips.cc/">NeurIPS'23 </a>for the first time!  <br/>
-		09/23 &nbsp; Resuming the <a href="https://txhci.uta.edu/">TxHCI Seminar Series</a> <br/>
-		07/23 &nbsp; E3D is accepted to <a href="https://www.ubicomp.org/ubicomp-iswc-2023/"> Ubicomp'23 </a> for the first time! <br/>
-		05/23 &nbsp; Serving a subcommittee chair (Devices, Materials, and Fabrication) for <a href="https://chi2024.acm.org/">CHI'24 </a><br/>
-		01/23 &nbsp; Measurement Patterns is accepted to CHI'23 <br/>
-		01/23 &nbsp; One paper accepted by Composite Sturcture (Elsevier) <br/>
-		07/22 &nbsp; Received two NSF Grants, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2213842&HistoricalAwards=false">HCC</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222935&HistoricalAwards=false">FW-HTF-P</a> as a PI <br/>
-		07/22 &nbsp; ShrinkCells is accepted to <a href="https://uist.acm.org/uist2022/">UIST'22</a> <br/>
-		05/22 &nbsp; Serving on the program committee for <a href="https://chi2023.acm.org/">CHI'23</a> <br/>
-		03/22 &nbsp; CustomizAR is accepted to <a href="https://dis.acm.org/2022/">DIS'22</a> <br/>
-		01/22 &nbsp; Two papers, One panel, and One LBW paper is accepted to <a href="https://chi2022.acm.org/">CHI'22</a> <br/>
-		01/22 &nbsp; Serving on the program committee for UIST'22 <br/>
-		11/21 &nbsp; Organizing <a href="https://vivid.tamids.tamu.edu/4d-printing-workshop-for-children-ages-10-14/">4D Printing Workshop for K-12 students</a> <br/>
-		10/21 &nbsp; Happy to be part of founding member of <a href="https://vivid.tamids.tamu.edu/">VIVID Lab</a>, Texas A&M Institute of Data Science! <br/>
-		10/21 &nbsp; Telelife accepted to <a href="https://www.frontiersin.org/journals/virtual-reality">Frontiers in Virtual Reality</a> <br/>
-		08/21 &nbsp; Multi-ttach is accepted to <a href="https://scf.acm.org/2021/">SCF'21</a> <br/>
-		07/21 &nbsp; Successfully organized a <a href="https://engineering.tamu.edu/news/2021/08/SPARK-high-school-students-look-for-the-next-big-idea-in-engineering.html">virtual science camp</a> for high school students and <a href="https://engineering.tamu.edu/outreach/educator-opportunities/e3/index.html">E3 program</a> to promote STEM/CTE educator's research experience <br/>
-		06/21 &nbsp; Serving on the program committee (PC) for <a href="https://chi2022.acm.org/">CHI'22</a> <br/>
-		06/21 &nbsp; Received <a href="https://orau.org/news/releases/2021/orau-awards-35-research-grants-to-junior-faculty-at-its-member-universities.html" target="_blank">Ralph E. Powe Junior Faculty Enhancement Award</a>! <br/>
-		04/21 &nbsp; Serving as an HCI Area chair (PC) for <a href="https://scf.acm.org/2021/">SCF'21</a> <br/>
-		01/21 &nbsp; One paper accpeted to TExSS'21, Workshop on iUI'21 <br/>
-		01/21 &nbsp; Serving on the program committee for <a href="http://uist.acm.org/uist2021/" target="_blank">UIST'21</a> <br/>
-		01/21 &nbsp; Panelist at Digital Fabrication at Korea HCI'21 <br/>
-		12/20 &nbsp; Invited talk at <a href="https://www.tactuallabs.com/" target="_blank">Tactual Labs</a> <br/>
-		12/20 &nbsp; One paper accepted to CHI'21 <br/>
-		12/20 &nbsp; One paper accepted to IUI'21 <br/>
-		12/20 &nbsp; Recieved Triads for Transformation (T3) seed grant! <br/>
-		10/20 &nbsp; Programmable Filament is featured at <a href="https://spectrum.ieee.org/tech-talk/consumer-electronics/gadgets/programmable-filament-gives-even-simple-3d-printers-multimaterial-capabilities">IEEE Spectrum</a> and <a href="https://technews.acm.org/archives.cfm?fo=2020-11-nov/nov-02-2020.html">ACM TechNews</a> <br/>
-		10/20 &nbsp; One paper accepted to <a href="https://tei.acm.org/2021/">TEI'21</a> <br/>
-		09/20 &nbsp; Serving as a posters program co-chair at UIST'21 <br/>
-		09/20 &nbsp; Started organizing the <a href="https://txhci.uta.edu/">TxHCI Seminar Series</a> with awesome Cesar Toress at UTA and Sam Shorey at UT! <br/>
-		08/20 &nbsp; Programmable Filament got the Best Paper Honorable Mention Award! <br/>
-		07/20 &nbsp; Serving as a program committee (AC) for <a href="http://eics.acm.org/eics2021/index.html">EICS'21</a> <br/>
-		06/20 &nbsp; One paper accepted to <a href="https://nordichi2020.org/#/">NordiCHI'20</a> <br/>
-		06/20 &nbsp; Two papers accepted to <a href="http://uist.acm.org/uist2020/" target="_blank">UIST'20</a>
-		05/20 &nbsp; Named a 9th Heidelberg Laureate Young Researcher! <br/>
-		03/20 &nbsp; Serving as a short paper char for <a href="" target="_blank">IUI'21</a> <br/>
-		10/20 &nbsp; Serving on the program committee (AC) for <a href="http://uist.acm.org/uist2020/" target="_blank">UIST'20</a> <br/>
-		10/20 &nbsp; Serving as a Reg chair for <a href="http://uist.acm.org/uist2020/" target="_blank">UIST'20</a> <br/>
-		06/20 &nbsp; Serving as a Posters chair for <a href="https://scf.acm.org/2020/" target="_blank">SCF'20</a> <br/>
-		<strike>04/20 &nbsp; Invited talk, <a href="http://bid.berkeley.edu/">Berkeley Institute of Design</a>, UC Berkeley</strike> <br/>
-		<strike>04/20 &nbsp; Serving as a steering committee for <a href="http://texgraph.viz.tamu.edu/" target="_blank">TxGraph'20</a></strike> <br/>
-		01/20 &nbsp; Started teaching CHI:Computer-Human Interaction (CSCE 436) for spring 2020 <br/>
-		11/19 &nbsp; Invited talk at HCI@KAIST, Korea <br/>
-		11/19 &nbsp; Invited talk at KAIST EECS, Korea <br/>
-		11/19 &nbsp; Invited talk at <a href="http://ipd.unist.ac.kr/">IPD Lab</a> @ UNIST, Korea <br/>
-		11/19 &nbsp; Invited talk at Ewha Woman's University, Korea <br/>
-		09/19 &nbsp; Received gift funding from <a href="https://research.adobe.com/" target="_blank">Adobe Research</a>! <br/>
-		08/19 &nbsp; Started teaching <a href="http://cse667.slack.com" target="_blank">Fabricating Future Interaction Technologies</a> (CSCE 667) for fall 2019 <br/>
-		08/19 &nbsp; I am on the top of the <a href="https://research.adobe.com/fellowship/" target="_blank">Adobe Research Fellowship</a> page! <br/>
-		08/19 &nbsp; My first day as an assistant professor at <a href="https://engineering.tamu.edu/cse/index.html">Texas A&M University </a> <br/>
-		07/19 &nbsp; Two papers accpeted to <a href="https://uist.acm.org/uist2019/" target="_blank">UIST'19</a> <br/>
-		06/19 &nbsp; One paper accepted to <a href="https://cognitivesciencesociety.org/cogsci-2019/" target="_blank">CogSci'19</a> <br/>
-		05/19 Thesis defended <br/>
-		03/19 &nbsp; One paper accepted to <a href="https://tei.acm.org/2019/" target="_blank">TEI'19</a> <br/>
-		02/19 &nbsp; Serving as a Registrations co-chair at <a href="https://uist.acm.org/uist2019/" target="_blank">UIST'19</a> <br/>
-		12/19 Serving as an Associate Chair for LBW program at <a href="https://chi2019.acm.org/" target="_blank">CHI'19</a> <br/>
-		12/19 &nbsp; One paper acceptedtot <a href="https://chi2019.acm.org/" target="_blank">CHI'19</a> <br/>
-		07/18 &nbsp; Received <a href="https://research.adobe.com/fellowship/" target="_blank">Adobe Research Fellowship</a> <br/>
-		07/18 &nbsp; Invited talk @ HP Palo Alto <br/>
-		05/18 &nbsp; Invited talk @ SNU, Korea <br/>
-	</div>
+        <p class="research-para">My work has been recognized with the NSF CAREER Award, the Ralph E. Powe Junior Faculty Award, Montague-Center for Teaching Excellence Scholar, the Adobe Fellowship, and the TEES Young Faculty Fellow at Texas A&amp;M University.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="https://hcied.info/papers/CV-JeeeunKim-2026Apr.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+            Curriculum Vitae
+          </a>
+          <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=zNjEAPwAAAAJ&hl=en">Google Scholar</a>
+          <a class="btn btn-ghost" href="mailto:jeeeun.kim@tamu.edu">Email</a>
+        </div>
+    </div>
+
+    <!-- NEWS 1/3 -->
+    <div class="news-col" id="news">
+        <div class="col-head">News</div>
+        <div class="news-list" id="newsList"></div>
+        <div class="more-news"><button id="newsToggle">+ more</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== RESEARCH THEMES ======== -->
+<!-- <section class="themes-section" id="research">
+  <div class="wrap">
+    <div class="sec-label rise">01 / Research themes</div>
+    <div class="themes rise">
+      <div class="theme">
+        <div class="tn">01</div>
+        <h3>Augmenting objects with add-ons</h3>
+        <p>3D-printable mechanisms that turn static everyday objects into moving, robotic, and IoT-enabled interfaces.</p>
+        <div class="ex">Robiot · Roman · Mobiot · Reprise</div>
+      </div>
+      <div class="theme">
+        <div class="tn">02</div>
+        <h3>Programmable &amp; shape-changing materials</h3>
+        <p>Filaments, kerf structures, and heat-driven actuation that let printed matter bend, shrink, and reconfigure.</p>
+        <div class="ex">Programmable Filament · ShrinkCells · Kerf · MorphMag</div>
+      </div>
+      <div class="theme">
+        <div class="tn">03</div>
+        <h3>Adaptive interfaces for access</h3>
+        <p>Auto-generated tactile overlays and physical adaptations that reshape objects to fit diverse bodies and abilities.</p>
+        <div class="ex">Facade · AccessLens · Reprise · Tactile Pictures</div>
+      </div>
+      <div class="theme">
+        <div class="tn">04</div>
+        <h3>Authoring tools for everyone</h3>
+        <p>Meta-design tools and human–AI collaboration that let non-experts author and troubleshoot their own augmentations.</p>
+        <div class="ex">CraftML · HowDIY · 3DPFIX · 3D4ALL</div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ======== PUBLICATIONS ======== -->
+<section class="pubs-section" id="work">
+  <div class="wrap">
+    <div class="pub-head rise">
+      <div class="sec-label" style="margin-bottom:0">Publications</div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <label class="pub-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="q" type="search" placeholder="filter by title, venue…" aria-label="Filter publications"/>
+        </label>
+        <span class="pub-count" id="pubCount"></span>
+      </div>
+    </div>
+    <div class="pub-list rise" id="pubList">
+<article class="pub reveal" data-y="2025"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/fabric.png" alt="FABRIC"></div><div class="pub-body"><div class="pub-title">FABRIC: Fabricating Bodily-Expressive Robots for Inclusive and Low-Cost Design</div><div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS&rsquo;25)</div><div class="pub-meta"><span class="vtag year">2025</span><span class="vtag">IROS</span><a class="lnk" href="https://hcied.info/papers/2025IROS-Fabric_Final.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2025"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/instdet-openworld.png" alt="Instance Detection Open World"></div><div class="pub-body"><div class="pub-title">Solving Instance Detection from an Open-World Perspective</div><div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR&rsquo;25)</div><div class="pub-meta"><span class="vtag year">2025</span><span class="vtag">CVPR</span><a class="lnk" href="https://hcied.info/papers/InstanceOpenworld.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2025"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/LumosX3.png" alt="LumosX"></div><div class="pub-body"><div class="pub-title">LumosX: 3D Printed Anisotropic Light-Transfer</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;25)</div><div class="pub-meta"><span class="vtag year">2025</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/lumosX.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2025"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/kerf.png" alt="3D Printed Kerf Structures"></div><div class="pub-body"><div class="pub-title">3D Printed Kerf Structures</div><div class="pub-venue">International Conference on Tangible, Embedded, and Embodied Interaction (TEI&rsquo;25)</div><div class="pub-meta"><span class="vtag year">2025</span><span class="vtag">TEI</span><a class="lnk" href="https://hcied.info/papers/3dprintedkerf.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2024"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/unmake.png" alt="Unmake to Remake"></div><div class="pub-body"><div class="pub-title">Unmake to Remake: Materiality-driven Rapid Prototyping</div><div class="pub-venue">ACM Transactions on Computer-Human Interaction (ToCHI · presented at UIST&rsquo;24)</div><div class="pub-meta"><span class="vtag year">2024</span><span class="vtag">ToCHI</span><a class="lnk" href="https://hcied.info/papers/unmake.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2024"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/morphmag.png" alt="MorphMag"></div><div class="pub-body"><div class="pub-title">Reconfigurable Interfaces by Shape Change and Embedded Magnets</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;24)</div><div class="pub-meta"><span class="vtag year">2024</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/morphmag.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2024"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/accesslens.jpg" alt="AccessLens"></div><div class="pub-body"><div class="pub-title">AccessLens: Auto-detecting Inaccessibility of Everyday Objects</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;24)</div><div class="pub-meta"><span class="vtag year">2024</span><span class="vtag">CHI</span><a class="lnk" href="https://arxiv.org/abs/2401.15996">arXiv↗</a></div></div></article>
+<article class="pub reveal" data-y="2024"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/3DPFIX.png" alt="3DPFIX"></div><div class="pub-body"><div class="pub-title">3DPFIX: Improving Remote Novices&rsquo; 3D Printing Troubleshooting through Human-AI Collaboration</div><div class="pub-venue">Proceedings of the ACM on Human-Computer Interaction (CSCW&rsquo;24)</div><div class="pub-meta"><span class="vtag year">2024</span><span class="vtag">CSCW</span><a class="lnk" href="https://arxiv.org/abs/2401.15877">arXiv↗</a></div></div></article>
+<article class="pub reveal" data-y="2023"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/inst-det.png" alt="High-Resolution Instance Detection Dataset"></div><div class="pub-body"><div class="pub-title">A High-Resolution Dataset for Instance Detection with Multi-View Instance Capture</div><div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS&rsquo;23)</div><div class="pub-meta"><span class="vtag year">2023</span><span class="vtag">NeurIPS</span><a class="lnk" href="https://hcied.info/papers/2023NeurIPS-highresDataset.pdf">PDF↗</a><a class="lnk" href="https://github.com/insdet/instance-detection">Project↗</a></div></div></article>
+<article class="pub reveal" data-y="2023"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/e3d.jpg" alt="E3D"></div><div class="pub-body"><div class="pub-title">E3D: Harvesting Energy from Everyday Kinetic Interactions Using 3D Printed Attachment Mechanisms</div><div class="pub-venue">Proceedings of the ACM IMWUT (presented at Ubicomp&rsquo;23)</div><div class="pub-meta"><span class="vtag year">2023</span><span class="vtag">IMWUT</span><a class="lnk" href="https://hcied.info/papers/e3d-Ubicomp23.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2023"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/composite.png" alt="Composite filaments"></div><div class="pub-body"><div class="pub-title">Tuning Mechanical Properties of 3D Printed Composites with PLA:TPU Programmable Filaments</div><div class="pub-venue">Composite Structures, Vol. 318 (Elsevier)</div><div class="pub-meta"><span class="vtag year">2023</span><span class="vtag">Elsevier</span><a class="lnk" href="https://hcied.info/papers/pgmfilament-composite23.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2023"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/unitless.png" alt="Measurement Patterns"></div><div class="pub-body"><div class="pub-title">Measurement Patterns: User-Oriented Strategies for Dealing with Measurements and Dimensions in Making Processes</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;23)</div><div class="pub-meta"><span class="vtag year">2023</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/unitless-CHI23.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2023"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/kerf-spie.png" alt="Freeform kerf structures"></div><div class="pub-body"><div class="pub-title">An Exploration of 3D Printed Freeform Kerf Structures</div><div class="pub-venue">SPIE Smart Structures + Nondestructive Evaluation, Vol. 12484</div><div class="pub-meta"><span class="vtag year">2023</span><span class="vtag">SPIE</span><a class="lnk" href="https://hcied.info/papers/kerf-SPIE.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2022"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/Shrinkcell.png" alt="ShrinkCells"></div><div class="pub-body"><div class="pub-title">ShrinkCells: Localized and Sequential Shape-Changing Actuation of 3D-Printed Objects via Selective Heating</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;22)</div><div class="pub-meta"><span class="vtag year">2022</span><span class="vtag">UIST</span><a class="lnk" href="https://hcied.info/papers/Shrinkcells-UIST22.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2022"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/customizAR.png" alt="CustomizAR"></div><div class="pub-body"><div class="pub-title">CustomizAR: Facilitating Interactive Exploration and Measurement of Adaptive 3D Designs</div><div class="pub-venue">ACM Conference on Designing Interactive Systems (DIS&rsquo;22)</div><div class="pub-meta"><span class="vtag year">2022</span><span class="vtag">DIS</span><a class="lnk" href="https://hcied.info/papers/customizAR-DIS22.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2022"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/mobiot.jpeg" alt="Mobiot"></div><div class="pub-body"><div class="pub-title">Mobiot: Augmenting Everyday Objects into Moving IoT Devices Using 3D Printed Attachments Generated by Demonstration</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;22)</div><div class="pub-meta"><span class="vtag year">2022</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/mobiot-CHI22.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2022"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/Roman.png" alt="Roman"></div><div class="pub-body"><div class="pub-title">Roman: Making Everyday Objects Robotically Manipulable with 3D-Printable Add-on Mechanisms</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;22)</div><div class="pub-meta"><span class="vtag year">2022</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/roman-CHI22.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2022"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/fab4d.jpg" alt="Fab4D"></div><div class="pub-body"><div class="pub-title">Fab4D: An Accessible Hybrid Approach for Programmable Shaping and Shape Changing Artifacts</div><div class="pub-venue">TEI&rsquo;22 · ACM SIGGRAPH 2022 Labs</div><div class="pub-meta"><span class="vtag year">2022</span><span class="vtag">TEI</span><a class="lnk" href="https://hcied.info/papers/fab4d-TEI22.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/telelife.png" alt="Telelife"></div><div class="pub-body"><div class="pub-title">Telelife: The Future of Remote Living</div><div class="pub-venue">Frontiers in Virtual Reality</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">Frontiers</span><a class="lnk" href="https://doi.org/10.3389/frvir.2021.763340">DOI↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/multi-ttach.png" alt="Multi-ttach"></div><div class="pub-body"><div class="pub-title">Multi-ttach: Techniques to Enhance Multi-material Attachments in Low-cost FDM 3D Printing</div><div class="pub-venue">ACM Symposium on Computational Fabrication (SCF&rsquo;21)</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">SCF</span><a class="lnk" href="https://hcied.info/papers/Multittach_SCF21.pdf">PDF↗</a><a class="lnk" href="https://multi-ttach.herokuapp.com/">System↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/3d4all.png" alt="3D4ALL"></div><div class="pub-body"><div class="pub-title">3D4ALL: Toward an Inclusive Pipeline to Classify 3D Contents</div><div class="pub-venue">TExSS&rsquo;21 (Workshop at IUI&rsquo;21)</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">IUI</span><a class="lnk" href="https://arxiv.org/abs/2102.12606">PDF↗</a><a class="lnk" href="https://project-3d4all.firebaseapp.com/">Dataset↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/escapeloom3.png" alt="EscapeLoom"></div><div class="pub-body"><div class="pub-title">EscapeLoom: Fabricating New Affordances for Hand Weaving</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;21)</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/escapeLoom-chi21.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/howDIY.png" alt="HowDIY"></div><div class="pub-body"><div class="pub-title">HowDIY: Towards Meta-Design Tools to Support Anyone to 3D Print Anywhere</div><div class="pub-venue">Annual Conference on Intelligent User Interfaces (IUI&rsquo;21)</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">IUI</span><a class="lnk" href="https://hcied.info/papers/howdiy-iui21.pdf">PDF↗</a><a class="lnk" href="https://howdiy.xyz/">System↗</a></div></div></article>
+<article class="pub reveal" data-y="2021"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/omnisoft.png" alt="OmniSoft"></div><div class="pub-body"><div class="pub-title">OmniSoft: A Design Tool for Soft Objects by Example</div><div class="pub-venue">International Conference on Tangible, Embedded, and Embodied Interaction (TEI&rsquo;21)</div><div class="pub-meta"><span class="vtag year">2021</span><span class="vtag">TEI</span><a class="lnk" href="https://hcied.info/papers/OmniSoft-TEI21.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2020"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/pgmble-filament.png" alt="Programmable Filament"></div><div class="pub-body"><div class="pub-title">Programmable Filament: Printed Filaments for Multi-material 3D Printing</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;20)</div><div class="pub-meta"><span class="vtag year">2020</span><span class="vtag">UIST</span><span class="award-flag">★ Best of UIST HM</span><a class="lnk" href="https://hcied.info/papers/programmableFilament-UIST20.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2020"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/romeo.png" alt="Romeo"></div><div class="pub-body"><div class="pub-title">Romeo: A Design Tool for Embedding Transformable Parts in 3D Models to Robotically Augment Default Functionality</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;20)</div><div class="pub-meta"><span class="vtag year">2020</span><span class="vtag">UIST</span><a class="lnk" href="https://hcied.info/papers/Romeo-UIST20.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2020"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/anyone.jpg" alt="Anyone Can Print"></div><div class="pub-body"><div class="pub-title">&ldquo;Anyone Can Print&rdquo;: Supporting Collaborations with 3D Printing Services to Empower Broader Participation in Personal Fabrication</div><div class="pub-venue">Nordic Conference on Human-Computer Interaction (NordiCHI&rsquo;20)</div><div class="pub-meta"><span class="vtag year">2020</span><span class="vtag">NordiCHI</span><a class="lnk" href="https://hcied.info/papers/Anyonecanprint-NordiCHI20.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2019"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/printedfabric.jpg" alt="3D Printed Fabric"></div><div class="pub-body"><div class="pub-title">3D Printed Fabric: Techniques for Design and 3D Weaving Programmable Textiles</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;19)</div><div class="pub-meta"><span class="vtag year">2019</span><span class="vtag">UIST</span><a class="lnk" href="https://hcied.info/papers/3dprintedfabric.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2019"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/robiot.jpg" alt="Robiot"></div><div class="pub-body"><div class="pub-title">Robiot: A Design Tool for Actuating Everyday Objects with Automatically Generated 3D Printable Mechanisms</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;19)</div><div class="pub-meta"><span class="vtag year">2019</span><span class="vtag">UIST</span><a class="lnk" href="https://hcied.info/papers/robiot-UIST19.pdf">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2019"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/puzzle.png" alt="Parent-Child Interactions"></div><div class="pub-body"><div class="pub-title">Parent-Child Interactions and Word Learning: Introducing Vocabulary in Different Play Contexts</div><div class="pub-venue">Annual Meeting of the Cognitive Science Society (CogSci&rsquo;19)</div><div class="pub-meta"><span class="vtag year">2019</span><span class="vtag">CogSci</span></div></div></article>
+<article class="pub reveal" data-y="2019"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/penprinter.png" alt="3D Pen + 3D Printer"></div><div class="pub-body"><div class="pub-title">3D Pen + 3D Printer: Exploring the Role of Human and Fabrication Machine in Creative Making</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;19)</div><div class="pub-meta"><span class="vtag year">2019</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/penprinter-CHI19.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/3dpenprinter.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2019"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/mechamagnets.png" alt="Mechamagnets"></div><div class="pub-body"><div class="pub-title">Mechamagnets: Designing and Fabricating Haptic and Functional Physical Inputs with Embedded Magnets</div><div class="pub-venue">International Conference on Tangible, Embedded, and Embodied Interaction (TEI&rsquo;19)</div><div class="pub-meta"><span class="vtag year">2019</span><span class="vtag">TEI</span><a class="lnk" href="https://hcied.info/papers/mechamagnet-TEI19.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/mechamagnet.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2018"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/compositional.png" alt="Compositional 3D Printing"></div><div class="pub-body"><div class="pub-title">Compositional 3D Printing: Expanding &amp; Supporting Workflows Towards Compositional 3D Printing</div><div class="pub-venue">ACM Symposium on Computational Fabrication (SCF&rsquo;18)</div><div class="pub-meta"><span class="vtag year">2018</span><span class="vtag">SCF</span><a class="lnk" href="https://hcied.info/papers/Compositional-SCF18.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/compositional.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2018"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/craftml.png" alt="CraftML"></div><div class="pub-body"><div class="pub-title">CraftML: 3D Modeling is Web Programming</div><div class="pub-venue">Jeeeun Kim &amp; Tom Yeh · CHI Conference on Human Factors in Computing Systems (CHI&rsquo;18)</div><div class="pub-meta"><span class="vtag year">2018</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/craftml-CHI18.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/craftml.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2017"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/Uncertainty.jpg" alt="Understanding Uncertainty in Measurement"></div><div class="pub-body"><div class="pub-title">Understanding Uncertainty in Measurement and Accommodating its Impact in 3D Modeling and Printing</div><div class="pub-venue">ACM Conference on Designing Interactive Systems (DIS&rsquo;17)</div><div class="pub-meta"><span class="vtag year">2017</span><span class="vtag">DIS</span><a class="lnk" href="https://hcied.info/papers/Uncertainty_DIS2017.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/uncertainty.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2017"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/codesigner.png" alt="Machines as Co-Designers"></div><div class="pub-body"><div class="pub-title">Machines as Co-Designers: A Fiction on the Future of Human-Fabrication Machine Interaction (alt.chi)</div><div class="pub-venue">Extended Abstracts, CHI Conference on Human Factors in Computing Systems (CHI&rsquo;17)</div><div class="pub-meta"><span class="vtag year">2017</span><span class="vtag">alt.chi</span><a class="lnk" href="https://hcied.info/papers/Codesigner-CHI17.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/codesigner.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2017"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/facade.jpg" alt="Facade"></div><div class="pub-body"><div class="pub-title">Facade: Auto-generating Tactile Interfaces to Appliances</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;17)</div><div class="pub-meta"><span class="vtag year">2017</span><span class="vtag">CHI</span><a class="lnk" href="https://hcied.info/papers/Facade-CHI17.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/facade.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2017"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/foldmecha.png" alt="FoldMecha"></div><div class="pub-body"><div class="pub-title">FoldMecha: Exploratory Design and Engineering of Mechanical Papercraft</div><div class="pub-venue">International Conference on Tangible, Embedded, and Embodied Interaction (TEI&rsquo;17)</div><div class="pub-meta"><span class="vtag year">2017</span><span class="vtag">TEI</span><a class="lnk" href="http://dl.acm.org/citation.cfm?id=3024991">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/foldmecha.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2016"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/reprise.png" alt="Reprise"></div><div class="pub-body"><div class="pub-title">Reprise: A Design Tool for Specifying, Generating, and Customizing 3D Printable Adaptations on Everyday Objects</div><div class="pub-venue">Annual Symposium on User Interface Software and Technology (UIST&rsquo;16)</div><div class="pub-meta"><span class="vtag year">2016</span><span class="vtag">UIST</span><a class="lnk" href="https://hcied.info/papers/reprise-UIST16.pdf">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/reprise.html">BibTeX↗</a></div></div></article>
+<article class="pub reveal" data-y="2015"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/seenmusic.png" alt="Seen Music"></div><div class="pub-body"><div class="pub-title">Seen Music: Ambient Music Data Visualization for Children with Hearing Impairments</div><div class="pub-venue">ACM Interaction Design and Children (IDC&rsquo;15)</div><div class="pub-meta"><span class="vtag year">2015</span><span class="vtag">IDC</span><a class="lnk" href="http://dl.acm.org/citation.cfm?id=2901891">PDF↗</a></div></div></article>
+<article class="pub reveal" data-y="2015"><div class="pub-thumb"><img loading="lazy" src="https://hcied.info/img/thumbnail/moveable.png" alt="Movable Tactile Pictures"></div><div class="pub-body"><div class="pub-title">Toward 3D-Printed Movable Tactile Pictures for Children with Visual Impairments</div><div class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI&rsquo;15)</div><div class="pub-meta"><span class="vtag year">2015</span><span class="vtag">CHI</span><a class="lnk" href="http://dl.acm.org/citation.cfm?id=2702144">PDF↗</a><a class="lnk" href="https://hcied.info/bibtex/printgami.html">BibTeX↗</a></div></div></article>
+    </div>
+    </div>
+    <p class="noresult" id="noResult">No publications match that filter.</p>
+  </div>
 </section>
 
-	<div class="headline" style="position: absolute; top:	65%; left:	10%" > Publications </div>
-	<div class="papers">
+<!-- ======== CONTACT ======== -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-card rise">
+      <h2>Interested in working with me?</h2>
+      <p>Prospective students: fill out the lab form, then send a hello. For talks, collaborations, and press — email is best.</p>
+      <div class="contact-actions">
+        <a class="btn btn-solid" href="https://docs.google.com/forms/d/e/1FAIpQLSdqRzDZXgjT7D1NuFsFwQKx_tS1grwPWIJRQMVTSlIMewKjHw/viewform?usp=sf_link">Prospective student form →</a>
+        <a class="btn btn-ghost" href="mailto:jeeeun.kim@tamu.edu">jeeeun.kim@tamu.edu</a>
+        <a class="btn btn-ghost" href="http://hcied.info">HCIed Lab</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
-	<div class="horizon-align">
-		<img src="img/thumbnail/fabric.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>FABRIC: FAbricating Bodily-Expressive Robots for Inclusive and
-Low-Cost Design</i><br/>
-		In Proceedings the 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS'25)
-		[<a href="papers/2025IROS-Fabric_Final.pdf" target="_blank">PDF</a>]
-	</div>
-	<div class="horizon-align">
-		<img src="img/thumbnail/instdet-openworld.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>Solving Instance Detection from an Open-World Perspective</i><br/>
-		In Proceedings of IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR'25)
-		<!-- [<a href="https://arxiv.org/pdf/2503.00359" target="_blank">arXiv</a>] -->
-		[<a href="papers/InstanceOpenworld.pdf" target="_blank">PDF</a>]
-	</div>
-	<div class="horizon-align">
-		<img src="img/thumbnail/LumosX3.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>LumosX: 3D Printed Anisotropic Light-Transfer</i><br/>
-		In Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (CHI'25)
-		[<a href="papers/lumosX.pdf" target="_blank">PDF</a>]
-	</div>
-	<div class="horizon-align">
-		<img src="img/thumbnail/kerf.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>3D Printed Kerf Structures</i><br/>
-		In Proceedings of Nineteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI'25)
-		[<a href="papers/3dprintedkerf.pdf" target="_blank">PDF</a>]
-	</div>
-	<div class="horizon-align">
-		<img src="img/thumbnail/unmake.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>Unmake to Remake: Materiality-driven Rapid Prototyping</i><br/>
-		ACM Transactions on Computer-Human Interaction (ToCHI, Presented at UIST’24)
-		[<a href="papers/unmake.pdf" target="_blank">PDF</a>]
-	</div>
-	<div class="horizon-align">
-				<img src="img/thumbnail/morphmag.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Reconfigurable Interfaces by Shape Change and Embedded Magnets</i><br/>
-				In Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems (CHI'24)
-				[<a href="papers/morphmag.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/accesslens.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>AccessLens: Auto-detecting Inaccessibility of Everyday Objects</i><br/>
-				In Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems (CHI'24)
-				[<a href="https://arxiv.org/abs/2401.15996" target="_blank">arXiv</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/3DPFIX.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>3DPFIX: Improving Remote Novices' 3D Printing Troubleshooting through Human-AI Collaboration</i><br/>
-				In Proceedings of the ACM on Human-Computer Interaction (CSCW’24)
-				[<a href="https://arxiv.org/abs/2401.15877" target="_blank">arXiv</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/inst-det.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>A High-Resolution Dataset for Instance Detection with Multi-View Instance Capture</i><br/>
-				In Proceedings of Advances in Neural Information Processing Systems. (NeurIPS’23)
-				[<a href="papers/2023NeurIPS-highresDataset.pdf" target="_blank">PDF</a>
-                [<a href="https://github.com/insdet/instance-detection" target="_blank">Project Page</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/e3d.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>E3D: Harvesting Energy from Everyday Kinetic Interactions Using 3D Printed Attachment Mechanisms</i><br/>
-				In Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT, Presented at Ubicomp'23)
-				[<a href="papers/e3d-Ubicomp23.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/composite.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Tuning mechanical properties of 3D printed composites with PLA: TPU programmable filaments</i><br/>
-				In Composite Structures Vol. 318, Elsevier
-				[<a href="papers/pgmfilament-composite23.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/unitless.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Measurement Patterns: User-Oriented Strategies for Dealing with Measurements and Dimensions in Making Processes</i><br/>
-				In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI'23)
-				[<a href="papers/unitless-CHI23.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/kerf-spie.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>An exploration of 3D printed freeform kerf structures</i><br/>
-				In Proceedings of SPIE Smart Structures + Nondestructive Evaluation, Vol. 12484
-				[<a href="papers/kerf-SPIE.pdf" target="_blank">PDF</a>]
-		</div>
-
-		<div class="horizon-align">
-				<img src="img/thumbnail/Shrinkcell.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>ShrinkCells: Localized and Sequential Shape-Changing Actuation of 3D-Printed Objects via Selective Heating</i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology (UIST’22, To appear)
-				[<a href="papers/Shrinkcells-UIST22.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/customizAR.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>CustomizAR: Facilitating Interactive Exploration and Measurement of Adaptive 3D Designs</i><br/>
-				In Proceedings of ACM Conference on Designing Interactive Systems (DIS'22)
-				[<a href="papers/customizAR-DIS22.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align">
-				<img src="img/thumbnail/mobiot.jpeg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Mobiot: Augmenting Everyday Objects into Moving IoT Devices Using 3D Printed Attachments Generated by Demonstration</i><br/>
-				In Proceedings of the 40th Annual ACM SIGCHI Conference on Human Factors in Computing Systems (CHI’22)
-				[<a href="papers/mobiot-CHI22.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/Roman.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Roman: Making Everyday Objects Robotically Manipulable with 3D-Printable Add-on Mechanisms</i><br/>
-				In Proceedings of the 40th Annual ACM SIGCHI Conference on Human Factors in Computing Systems (CHI’22)
-				[<a href="papers/roman-CHI22.pdf" target="_blank">PDF</a>]
-			</div> 
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/fab4d.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Fab4D: An Accessible Hybrid Approach for Programmable Shaping and Shape Changing Artifacts</i><br/>
-				In Proceedings of Sixteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI’22) <br/>
-				ACM SIGGRAPH 2022 Labs (SIGGRAPH'22)
-				[<a href="papers/fab4d-TEI22.pdf" target="_blank">PDF</a>]
-			</div> 
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/telelife.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb">
-				<i>Telelife: The Future of Remote Living</i><br/>
-				In Frontiers of Virtual Reality 
-				[<a href="https://doi.org/10.3389/frvir.2021.763340" target="_blank">PDF</a>]
-			</div> 
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/multi-ttach.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Multi-ttach: Techniques to Enhance Multi-material Attachments in Low-cost FDM 3D Printing</i><br/>
-				In Proceedings of the ACM SCF'21 
-				[<a href="papers/Multittach_SCF21.pdf" target="_blank">PDF</a>] [<a href="https://multi-ttach.herokuapp.com/" target="_blank">Project Website/System</a>]
-			</div> 
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/3d4all.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>	
-				<i>3D4ALL: Toward an Inclusive Pipeline to Classify 3D Contents</i><br/>
-				In Proceedings of the TExSS'21 (Workshop on iUI'21)
-				[<a href="https://arxiv.org/abs/2102.12606" target="_blank">PDF</a>] [<a href="https://project-3d4all.firebaseapp.com/" target="_blank">Project Website/Open Dataset</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/escapeloom3.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>EscapeLoom: Fabricating New Affordances for Hand Weaving</i><br/>
-				In Proceedings of the 39th Annual ACM SIGCHI Conference on Human Factors in Computing Systems (CHI’21)
-				[<a href="papers/escapeLoom-chi21.pdf" target="_blank">PDF</a>]
-			</div> 
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/howDIY.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>HowDIY: Towards Meta-Design Tools to Support Anyone to 3D Print Anywhere</i><br/>
-				In Proceedings of 26th Annual Conference on Intelligent User Interfaces (IUI’21)
-				[<a href="papers/howdiy-iui21.pdf" target="_blank">PDF</a>] [<a href="https://howdiy.xyz/" target="_blank">Project Website/System</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/omnisoft.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>OmniSoft: A Design Tool for Soft Objects by Example</i><br/>
-				In Proceedings of International Conference on Tangible, Embedded, and Embodied Interaction (TEI’21)
-				[<a href="papers/OmniSoft-TEI21.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/pgmble-filament.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Programmable Filament: Printed Filaments for Multi-material 3D Printing</i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology (UIST’20)
-				<b>*SIGCHI Best of UIST Honorable Mention Award</b>
-				[<a href="papers/programmableFilament-UIST20.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/romeo.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Romeo: A Design Tool for Embedding Transformable Parts in 3D Models to Robotically Augment Default Functionality.</i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology (UIST’20)
-				[<a href="papers/Romeo-UIST20.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/anyone.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>“Anyone Can Print”: Supporting Collaborations with 3D Printing Services to Empower Broader Participation in Personal Fabrication</i><br/>
-				In Proceedings of the 11th Nordic Conference on Human-Computer Interaction (NordiCHI’20)
-				[<a href="papers/Anyonecanprint-NordiCHI20.pdf" target="_blank">PDF</a>]
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/printedfabric.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>3D Printed Fabric: Techniques for Design and 3D Weaving Programmable Textiles.</i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology (UIST’19)
-				[<a href="papers/3dprintedfabric.pdf" target="_blank">PDF</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/robiot.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Robiot: A Design Tool for Actuating Everyday Objects with Automatically generated 3D Printable Mechanisms. </i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology (UIST’19)
-				[<a href="papers/robiot-UIST19.pdf" target="_blank">PDF</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/puzzle.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Parent-Child Interactions and Word Learning: Introducing vocabulary in different play contexts.</i><br/>
-				In Proceedings of the 41st Annual Meeting of the Cognitive Science Society (CogSci’19) 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/penprinter.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>3D Pen + 3D Printer: Exploring the Role of Human and Fabrication Machine in Creative Making.</i><br/>
-				In Proceedings of the 37th Annual ACM SIGCHI Conference on Human Factors in Computing Systems (CHI’19)
-				[<a href="papers/penprinter-CHI19.pdf" target="_blank">PDF</a>] [<a href="bibtex/3dpenprinter.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/mechamagnets.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Mechamagnets: Designing and Fabricating Haptic and Functional Physical Inputs with Embedded Magnets. </i><br/>
-				In Proceedings of International Conference on Tangible, Embedded, and Embodied Interaction (TEI’19)
-				[<a href="papers/mechamagnet-TEI19.pdf" target="_blank">PDF</a>] [<a href="bibtex/mechamagnet.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/compositional.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Compositional 3D Printing: Expanding &amp; Supporting Workflows Towards Compositional 3D Printing.</i><br/>
-				In Proceedings of Acm Symposium On Computational Fabrication (SCF'18)
-				[<a href="papers/Compositional-SCF18.pdf" target="_blank">PDF</a>] [<a href="bibtex/compositional.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/craftml.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				Jeeeun Kim & Tom Yeh<br/>
-				In Proceedings of the 36th Annual ACM Conference on Human Factors in Computing Systems (CHI'18)
-				[<a href="papers/craftml-CHI18.pdf" target="_blank">PDF</a>] [<a href="bibtex/craftml.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/Uncertainty.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Understanding Uncertainty in Measurement and Accommodating its Impact in 3D Modeling and Printing.</i><br/>
-				In Proceedings of ACM Conference on Designing Interactive Systems (DIS'17)
-				[<a href="papers/Uncertainty_DIS2017.pdf" target="_blank">PDF</a>] [<a href="bibtex/uncertainty.html">bibtex</a>] 
-			</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/codesigner.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Machines as Co-Designers: A Fiction on the Future of Human-Fabrication Machine Interaction.</i> (alt.chi)<br/>
-				In Proceedings of Extended Abstracts of the 35th Annual ACM Conference on Human Factors in Computing Systems (CHI'17)
-				[<a href="papers/Codesigner-CHI17.pdf" target="_blank">PDF</a>] [<a href="bibtex/codesigner.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/facade.jpg" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Facade: Auto-generating Tactile Interfaces to Appliances.</i><br/>
-				In Proceedings of the 35th Annual ACM Conference on Human Factors in Computing Systems (CHI'17)
-				[<a href="papers/Facade-CHI17.pdf" target="_blank">PDF</a>] [<a href="bibtex/facade.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/foldmecha.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>FoldMecha: Exploratory Design and Engineering of Mechanical Papercraft.</i><br/>
-				In Proceedings of International Conference on Tangible, Embedded, and Embodied Interaction (TEI&rsquo;17)
-				[<a href="http://dl.acm.org/citation.cfm?id=3024991&amp;CFID=747527906&amp;CFTOKEN=97469370" target="_blank">PDF</a>] [<a href="bibtex/foldmecha.html">bibtex</a>] 
-		</div>
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/reprise.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Reprise: A Design Tool for Specifying, Generating, and Customizing 3D Printable Adaptations on Everyday Objects.</i><br/>
-				In Proceedings of the Annual Symposium on User Interface Software and Technology <a href="https://uist.acm.org/uist2016/" target="new">UIST 2016</a>
-				[<a href="papers/reprise-UIST16.pdf" target="_blank">PDF</a>] [<a href="bibtex/reprise.html">bibtex</a>]
-			</div>
-		
-<!-- <div class="horizon-align">
-<div class="left">
-<img src="img/thumbnail/foldgami.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/></div>
-<div class="right">
-<i>3D Folded PrintGami: Transforming Passive 3D Printed Objects to Interactive by Inserted Paper Origami Circuits.</i>
-Claudia Dauden Roquet, Jeeeun Kim, &amp; Tom Yeh
-In Proceedings of ACM Conference on Designing Interactive Systems <a href="http://www.dis2016.org/" target="new">DIS 2016</a>
-[<a href="http://dl.acm.org/citation.cfm?id=2901891&amp;CFID=641046244&amp;CFTOKEN=21911896" target="new">PDF</a>] [<a href="bibtex/printgami.html">bibtex</a>]</div>
-</div> -->
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/seenmusic.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Seen Music: Ambient Music Data Visualization for Children with Hearing Impairments.</i><br/>
-				In Proceedings of ACM Interaction Design and Children <a href="http://idc2015boston.org" target="new">IDC 2015</a>
-				[<a href="http://dl.acm.org/citation.cfm?id=2901891&amp;CFID=641046244&amp;CFTOKEN=21911896" target="new">PDF</a>] [<a href="bibtex/printgami.html">bibtex</a>] 
-		</div>
-
-		<div class="horizon-align"> 
-				<img src="img/thumbnail/moveable.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-				<i>Toward 3D-Printed Movable Tactile Pictures for Children with Visual Impairments.</i><br/>
-				In Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems (CHI'15)
-				[<a href="http://dl.acm.org/citation.cfm?id=2702144&amp;CFID=505687334&amp;CFTOKEN=51733596" target="new">PDF</a>][<a href="bibtex/moveable.html">bibtex</a>]
-		</div> 
-<!-- <div class="horizon-align">
-<div class="left">
-<img src="img/thumbnail/study3d.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/></div>
-<div class="right">
-<i>A Study to Empower Children to Design Movable Tactile Pictures for Children with Visual Impairments.</i>
-Jeeeun Kim, Hyunjoo Oh, & Tom Yeh
-In Proceedings of International Conference on Tangible, Embedded, and Embodied Interaction (TEI'15)
-[<a href="http://dl.acm.org/citation.cfm?id=2688815" target="new">PDF</a>] [<a href="bibtex/study_moveable.html">bibtex</a>]</div>
-</div> -->
-<!-- <div class="horizon-align">
-<div class="left">
-<img src="img/thumbnail/lego.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-</div>
-<div class="right">
-<i>Using LEGO to Model 3D Tactile Picture Books by Sighted Children for Blind Children.</i>
-Jeeeun Kim, Abigale Stangl, &amp; Tom Yeh
-In Proceedings of <a href="http://www.sui-symposium.org/" target="new">Spatial User Interface '14</a>
-[<a href="http://dl.acm.org/citation.cfm?id=2661211" target="new">PDF</a>] [<a href="bibtex/.html">bibtex</a>]</div>
-</div> -->
-<!-- <div class="horizon-align">
-		<img src="img/thumbnail/sikulibot.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-		<i>SikuliBot: Automating Physical User Interface Using Images.</i><br/>
-		In Proceedings of Adjunct <a href="http://www.acm.org/uist/uist2014/" target="new">UIST 2014</a>
-		[<a href="http://dl.acm.org/citation.cfm?id=2659110" target="new">PDF</a>] [<a href="bibtex/sikulibot.html">bibtex</a>] 
-	</div>
-	<div class="horizon-align">
-			<img src="img/thumbnail/3dtactile.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-			<i>3D Printed Tactile Picture Books for Children with Visual Impairments: A Design Probe.</i><br/>
-			In Proceedings of ACM Interaction Design and Children <a href="http://www.idc2014.org" target="_blank&quot;">IDC 2014</a>
-			[<a href="http://dl.acm.org/citation.cfm?id=2610482" target="new">PDF</a>] [<a href="bibtex/lego.html">bibtex</a>]
-		</div>
-	<div class="horizon-align">
-			<img src="img/thumbnail/techtosupport.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-			<i>Technology to Support Emergent Literacy Skills in Young Children with Visual Impairments.</i><br/>
-			In Proceedings of Extended Abstracts. <a href="http://chi2014.acm.org" target="new">CHI 2014</a> Toronto, Canada
-			[<a href="http://dl.acm.org/citation.cfm?id=2581341" target="new">PDF</a>][<a href="bibtex/.html">bibtex</a>]
-		</div>
-	<div class="horizon-align">
-			<img src="img/thumbnail/tactilepicturebook.png" ALIGN="left" HSPACE="15" VSPACE="10" class="thumb"><br/>
-			<i>Tactile Picture Books for Young Children with Visual Impairment.</i><br/>
-			<a href="http://www.tei-conf.org/14/" target="new">TEI 2014</a> Works-in-Progress, Munich, Germany
-			[<a href="papers/tei2014_tactile_picture_books - Final.pdf" target="new">PDF</a>] [<a href="bibtex/tactilepicturebook.html">bibtex</a>]
-		</div>
-	</pre>
-</div> -->
-
-
-<!-- <div class="awards">
-<pre>
-<b>2021</b>
-Lalph E. Powe Junior Faculty Enhancement Award
-<b>2020</b>
-UIST Best Paper Award Honorable Mention
-Heidelberg Laureate Forum Young Researcher
-<b>2018</b>
-Adobe Research Fellowship (Top 10 students in the world)
-Special Recognition for the Excellent Review CHI'18
-<b>2017</b>
-Rising Stars in EECS
-Special Recognition for the Excellent Review UIST'17
-HCIC Invited Student Participant
-CRA-W Grad Cohort
-<b>2015</b>
-The Best User Experience Award, HackCU, Boulder, CO
-<b>2014</b>
-Early Career Development Award, CS Department, University of Colorado Boulder, USA
-Dean's Fellowship, Computer Science Department, University of Colorado Boulder, USA
-<b>2013</b>
-Finalist, Typhlo & Tactus Tactile Book Contest 2013, USA
-Grace Hopper Scholarship, Anita Borg Institute for Women in Technology, USA
-The 1st Place Pitch Cash Prize, Startup Summer (Startup Colorado), USA
-Outreach Award, Office for University Outreach, University of Colorado Boulder, USA
-<b>2012</b>
-Beverly Sears Graduate Student Research Grant, Colorado Research Administration, USA
-University Fellowship, Department of Computer Science, University of Colorado Boulder, USA
-<b>2010</b>
-Presidential Award, Best Contributor of the Year, Korea Telecom, Korea
-The most Useful Business Application Award, Korea Telecom, Korea
-Chancellor's Award for the Top Graduates, Korea Aerospace University, Korea
-Best Thesis Award, Department of Computer Engineering, Korea Aerospace University, Korea
-<b>2007-2009</b>
-Scholarship for the First in Honors Class, Jeong-Seok Foundation, Korea
-<b>2004-2008</b>
-Scholarship for Excellent Academic Records, Korea Aerospace University, Korea
-<b>2007</b>
-ISTAT (International Society of Transport Aircraft Trading) Foundation Scholarship, (Top 8 students in the World) ISTAT Foundation, USA
-<b>2006</b>
-Honorary Alumnus, Yanbian University of Science and Technology, China
-<b>2005</b>
-Presidential Scholarship, Han-Jin Foundation, Korea
-</pre>
-<div>
-
-</body>
-</html>
-
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Jeeeun Kim · Texas A&amp;M University</span>
+    <span><a href="https://scholar.google.com/citations?user=zNjEAPwAAAAJ&hl=en">Scholar</a> · <a href="https://www.instagram.com/qubick/">Instagram</a> · <a href="http://hcied.info">HCIed Lab</a></span>
+  </div>
+</footer>
 
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+/* ---- scroll progress + nav ---- */
+const bar=document.getElementById('bar'),navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  navEl.classList.toggle('stuck',h.scrollTop>20);
+},{passive:true});
 
-ga('create', 'UA-54467640-1', 'auto');
-ga('send', 'pageview');
+/* ---- reveal on scroll ---- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+},{threshold:.06,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+function revealNow(){document.querySelectorAll('.rise:not(.in)').forEach(el=>{
+  if(el.getBoundingClientRect().top<innerHeight*.98)el.classList.add('in');})}
+revealNow();window.addEventListener('load',revealNow);
+setTimeout(()=>document.querySelectorAll('.rise:not(.in)').forEach(el=>el.classList.add('in')),2200);
 
+/* ---- hero name reveal ---- */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('nameL').classList.add('show'),80));
+setTimeout(()=>document.getElementById('nameL')?.classList.add('show'),500);
+
+/* ---- news ---- */
+const news=[
+ ["06/25","FABRIC accepted to <a href='https://www.iros25.org/'>IROS’25</a>",1],
+ ["05/25","Instance Detection in Open World accepted to <a href='https://cvpr.thecvf.com/'>CVPR’25</a>",1],
+ ["05/25","LumosX presented at <a href='https://chi2025.acm.org/'>CHI’25</a>",1],
+ ["03/25","Named a TEES Young Faculty Fellow by the College of Engineering",1],
+ ["09/24","Named a Montague–Center for Teaching Excellence Scholar",1],
+ ["04/24","Thrilled to receive the <a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2340120'>NSF CAREER Award</a>!",1],
+ ["04/24","Appointed the general co-chair (with Ian Oakley) for <a href='https://uist.acm.org/2025/'>UIST’25</a>",0],
+ ["03/24","Subcommittee co-chair, Devices/Materials/Fabrication, <a href='https://chi2025.acm.org/'>CHI’25</a>",0],
+ ["01/24","AccessLens, MorphMag & Sustainable Unmaking at <a href='https://chi2024.acm.org/'>CHI’24</a>",0],
+ ["01/24","Excited to be part of NSF <a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2221436'>NRI </a> Project as Co-PI",0],
+ ["09/23","Excited to be part of NSF <a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2026574&HistoricalAwards=false'>FW-HTF-RM</a> project as a Co-PI<br/>",0],
+ ["09/23","3DPFIX accepted to <a href='https://cscw.acm.org/2024/'>CSCW’24</a>",0],
+ ["09/23","HighRes Instance Detection at <a href='https://neurips.cc/'>NeurIPS’23</a>",0],
+ ["07/23","E3D at <a href='https://www.ubicomp.org/'>Ubicomp’23</a>",0],
+ ["01/23","Measurement Patterns at CHI’23",0],
+ ["07/22","Two NSF grants (HCC, FW-HTF-P) as PI",0],
+ ["07/22","ShrinkCells at <a href='https://uist.acm.org/uist2022/'>UIST’22</a>",0],
+ ["06/21","Ralph E. Powe Junior Faculty Enhancement Award",0],
+ ["10/20","Programmable Filament in IEEE Spectrum & ACM TechNews",0],
+ ["08/20","Programmable Filament — Best of UIST Honorable Mention",0],
+ ["05/20","Named a 9th Heidelberg Laureate Young Researcher",0],
+ // ["07/18","<a href='https://research.adobe.com/fellowship/'>Adobe Research Fellowship</a>",0],
+ // ["08/19","First day as Assistant Professor at Texas A&M",0]
+];
+const nl=document.getElementById('newsList');
+let newsOpen=false;
+news.forEach((n,i)=>{
+  const d=document.createElement('div');
+  d.className='news-item'+(n[2]?' feat':'')+(i>=8?' hide extra':'');
+  d.innerHTML=`<span class="date">${n[0]}</span><span class="txt">${n[2]?'<em class=pill>new</em> ':''}${n[1]}</span>`;
+  nl.appendChild(d);
+});
+const nt=document.getElementById('newsToggle');
+nt.addEventListener('click',()=>{
+  newsOpen=!newsOpen;
+  document.querySelectorAll('.news-item.extra').forEach(e=>e.classList.toggle('hide',!newsOpen));
+  nt.textContent=newsOpen?'− show less':'+ show earlier news';
+});
+
+/* ---- publications filter ---- */
+const pubEls=[...document.querySelectorAll('#pubList .pub')];
+const qEl=document.getElementById('q');
+const noRes=document.getElementById('noResult');
+const countEl=document.getElementById('pubCount');
+function filterPubs(){
+  const s=qEl.value.trim().toLowerCase();
+  let n=0;
+  pubEls.forEach(p=>{const ok=!s||p.textContent.toLowerCase().includes(s);p.classList.toggle('hide',!ok);if(ok)n++;});
+  noRes.style.display=n?'none':'block';
+  countEl.textContent=n+' / '+pubEls.length+' papers';
+}
+qEl.addEventListener('input',filterPubs);filterPubs();
 </script>
+</body>
+</html>
