@@ -55,91 +55,490 @@
 
     </nav>
 
-        <section>
-          <div class="container">
-            <h3 class="menu_title">CSCE 743: Digital Fabrication Studio</h3>
-            <hr>
-          </div>
-        </section>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSCE 743 · Digital Fabrication Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page-bg:#FFFFFF;
+    --paper:#F4F0EC;
+    --paper-line:#DED2CE;
+    --ink:#241313;
+    --muted:#7A6A67;
+    --teal:#500000;
+    --indigo:#350000;
+    --amber:#A9821F;
+    --rose:#8B3A3A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding: 0 28px 120px;}
 
-      <section>
-        <div class="container">
-          Methods to operate and design new mechanisms for digital fabrication (e.g., 3D printing, laser cutting, CNC milling); principles, models, theories, impact and prediction of behaviors in programmable materials; Emphasis on practical applications and literature on late-breaking computational fabrication in human-computer interaction for end-users; Formulation of a novel interaction techniques for fabrication through mathematical representation of machine mechanisms and material behaviors.
+  /* HERO */
+  header.hero{
+    padding: 88px 0 56px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--teal);
+  }
+  h1.title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 64px);
+    line-height:1.02;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  h1.title span{color:var(--teal);}
+  .subtitle{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:500;
+    font-size:20px;
+    color:var(--muted);
+    margin:0 0 28px;
+  }
+  .lede{
+    max-width:640px;
+    font-size:17px;
+    color:#3A2D2C;
+  }
+  .lede + .lede{margin-top:14px;}
+
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:32px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+  }
+  .meta-chip{
+    border:1px solid var(--paper-line);
+    background:var(--paper);
+    padding:6px 12px;
+    border-radius:3px;
+    color:var(--muted);
+  }
+  .meta-chip b{color:var(--ink); font-weight:500;}
+
+  /* SECTION LABELS */
+  .section-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin: 64px 0 28px;
+  }
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--paper-line);
+  }
+
+  /* PREREQUISITES — boxed, numbered cards */
+  .outcomes{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    list-style:none;
+    padding:0; margin:0;
+    counter-reset: outcome;
+  }
+  .outcomes li{
+    counter-increment: outcome;
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    padding: 20px 20px 18px 56px;
+    font-size:15px;
+    color:#3A2D2C;
+    transition: border-color .2s ease;
+  }
+  .outcomes li:hover{ border-color: var(--teal); }
+  .outcomes li::before{
+    content: counter(outcome);
+    position:absolute;
+    left:18px; top:20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:500;
+    color:#fff;
+    background:var(--teal);
+    width:22px; height:22px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .outcomes li strong{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    color:var(--teal);
+  }
+  @media (max-width:680px){ .outcomes{grid-template-columns:1fr;} }
+
+  /* SCHEDULE RAIL */
+  .rail{
+    position:relative;
+    padding-left: 34px;
+  }
+  .rail::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background: repeating-linear-gradient(to bottom, var(--teal) 0 4px, transparent 4px 8px);
+    opacity:.55;
+  }
+  .week{
+    position:relative;
+    padding-bottom: 40px;
+  }
+  .week:last-child{padding-bottom:0;}
+  .week-node{
+    position:absolute;
+    left:-34px; top:4px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background: var(--page-bg);
+    border:2px solid var(--cat, var(--teal));
+  }
+  .week.off .week-node{border-color:var(--paper-line); background:var(--paper-line);}
+
+  .week-head{
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap: 10px 14px;
+    margin-bottom: 4px;
+  }
+  .week-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color: var(--cat, var(--teal));
+    letter-spacing:.06em;
+    white-space:nowrap;
+  }
+  .week-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--muted);
+  }
+  .week-topic{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:19px;
+  }
+  .week-topic a{color:inherit; text-decoration:none; border-bottom:1px solid var(--cat, var(--teal)); }
+  .week-topic a:hover{color:var(--cat, var(--teal));}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color: var(--cat, var(--teal));
+    border:1px solid var(--cat, var(--teal));
+    border-radius:20px;
+    padding:2px 9px;
+  }
+  .off-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .week-context{
+    font-size:14.5px;
+    color:var(--muted);
+    font-style:italic;
+    margin: 2px 0 0;
+  }
+
+  ul.resources{
+    list-style:none;
+    margin: 12px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  ul.resources li{
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:14.5px;
+  }
+  .res-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color: var(--cat, var(--teal));
+    border:1px solid var(--cat, var(--teal));
+    border-radius:20px;
+    padding:1px 8px;
+    flex-shrink:0;
+  }
+  ul.resources a{
+    color:#3A2D2C;
+    text-decoration:none;
+    border-bottom:1px solid var(--paper-line);
+  }
+  ul.resources a:hover{ color:var(--cat, var(--teal)); border-color:var(--cat, var(--teal)); }
+
+  footer{
+    margin-top:70px;
+    padding-top:26px;
+    border-top:1px solid var(--paper-line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .week{ opacity:0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+    .week.in{ opacity:1; transform:none; }
+  }
+
+  a:focus-visible, .week-topic a:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">CSCE 743</div>
+    <h1 class="title"><span>Digital Fabrication</span> Studio</h1>
+    <p class="subtitle">Programmable materials, machine mechanisms, and end-user fabrication</p>
+
+    <p class="lede">Methods to operate and design new mechanisms for digital fabrication — 3D printing, laser cutting, CNC milling. Principles, models, theories, and prediction of behaviors in programmable materials, with emphasis on practical applications and late-breaking computational fabrication research in HCI for end-users.</p>
+    <p class="lede">The studio culminates in the formulation of a novel interaction technique for fabrication, grounded in mathematical representation of machine mechanisms and material behaviors.</p>
+
+    <div class="meta-row">
+      <span class="meta-chip"><b>15</b>-week semester</span>
+      <span class="meta-chip">Studio format</span>
+      <span class="meta-chip">Grad classification required</span>
+      <span class="meta-chip">3D Printing · Laser Cutting · CNC</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-label">Course Prerequisites</div>
+    <ul class="outcomes">
+      <li><strong>Hold</strong> graduate classification and secure instructor approval before enrolling.</li>
+      <li><strong>Demonstrate</strong> proficiency in programming going into the studio.</li>
+      <li><strong>Bring</strong> working knowledge of WebGL for material and mechanism visualization.</li>
+      <li><strong>Manage</strong> an open-source project, including version control and collaborative workflows.</li>
+      <li><strong>Prefer</strong> JavaScript and Node.js — useful, though not strictly required.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-label">Class Schedule &amp; Lecture Slides</div>
+    <div class="rail" id="rail">
+
+      <div class="week" style="--cat:var(--teal)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 01</span>
+          <span class="week-date">Aug 25</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/d0vjh84spbxociv16o0xs/week1-intro.pptx?rlkey=zdbrtiqg2nlpzxrxevbtfa6bf&dl=0" target="_blank" rel="noopener">Course Intro</a></span>
         </div>
-      </section>
+        <ul class="resources">
+          <li><span class="res-label">Form</span><a href="https://forms.gle/RofWWCcZHtNfRH9Y7" target="_blank" rel="noopener">Intro survey</a></li>
+        </ul>
+      </div>
 
-
-        <section>
-          <div class="container">
-            <h3 class="menu_title">Course Prerequisites</h3>
-            <hr>
-          </div>
-        </section>
-
-
-      <section>
-        <div class="container">
-          Graduate classification and approval of instructor. Students are expected to be proficient in programming, own knowledge in WebGL and opensource project management. Javascript and node are preferred but not limited.
+      <div class="week off" style="--cat:var(--muted)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 02</span>
+          <span class="week-date">Sep 1</span>
+          <span class="off-note">Labor Day — no classes</span>
         </div>
-      </section>
+      </div>
 
-        <section>
-          <div class="container">
-            <h3 class="menu_title">Class Schedule & Lecture Slides</h3>
-            <hr>
-          </div>
-        </section>
-
-
-
-      <section>
-        <div class="container">
-          Week #1 (Aug. 25th): <a href="https://www.dropbox.com/scl/fi/d0vjh84spbxociv16o0xs/week1-intro.pptx?rlkey=zdbrtiqg2nlpzxrxevbtfa6bf&dl=0">Course Intro </a><br/>
-          <ul>
-             <a href="https://forms.gle/RofWWCcZHtNfRH9Y7"> Intro survey </a>
-           </ul>
-          Week #2 (Sep. 1st): Labor Day (No classes) <br/>
-          Week #3 (Sep. 8th): <a href="https://www.dropbox.com/scl/fi/wgdwlgx8ycd9hmk5xohg2/Week3-Fall2025.pptx?rlkey=6lu0aczakye6k7v273wkdaeke&dl=0">Idea Pitch & Paper Pinhole Camera</a><br/>
-          Week #4 (Sep. 15th): <a href="https://www.dropbox.com/scl/fi/fcah56h3blmdahbob9dwf/week4-Metamaterials.pptx?rlkey=1ahlmnjetzb3n6yzahexxdvgs&dl=0">3D Printing Basics & Metamaterial Mechanisms</a><br/>
-          <ul>
-            Reading: <a href="https://www.dropbox.com/scl/fi/s80nqqmaqov7fn35nilzd/metamaterial.pdf?rlkey=f2zmpjrj95p85lv7e375mpfka&dl=0">Metamaterial Mechanisms. (2016) Ion et al.</a>
-          </ul>
-          Week #5 (Sept 22nd): <a href="https://www.dropbox.com/scl/fi/3ksqpl2d9nzpmxjixe6ek/week5-Slicer_Gcode.pptx?rlkey=gvdebb5g5dq5r38eksrohqm6s&dl=0">Slicing & G-code</a><br/>
-          <ul>
-            Reading: <a href="https://www.dropbox.com/scl/fi/e20tc8t96ynjley4kkx4b/furbrication.pdf?rlkey=i74g7hr9vhw9jnyg97ccs0egh&dl=0">3D Printed Hair: Fused Deposition Modeling of
-Soft Strands, Fibers and Bristles. (2015) Laput et al.</a>
-          </ul>
-          Week #6 (Sep. 29th): No class (Instructor is at <a href="https://uist.acm.org/2025/" target="_blank">UIST'25</a>, Busan, Korea)
-          <ul>
-            Midterm presentation <a href="https://drive.google.com/drive/folders/1qfJg9mD4AXfVk9oKstzE3rkHkhcc8Z8Q?usp=drive_link">Video Recording Upload</a>
-          </ul>
-          Week #7 (Oct. 6th): <a href="https://www.dropbox.com/scl/fi/6heapucc3vjpcbuq0d1qv/week7-PassiveSensing.pptx?rlkey=5w8tuxdya4xattrh4p573gd8o&dl=0">Smart Materials for FDM Printing with Digital Capabilities</a><br/>
-
-          Week #8 (Oct. 20th): <a href="https://www.dropbox.com/scl/fi/93ityhh53s175gh20hs9d/week8-svgLasercutting.pptx?rlkey=hywy4khb400rqytx2fyv6kh1k&dl=0">SVG(Vectors) and Laser Cutting </a>
-          <ul>
-            Reading: <a href="https://www.dropbox.com/scl/fi/69z0thr9iu882j2ahdbf6/LaserOrigami.pdf?rlkey=jdx6g7zz6v5wwd3aqa8hp4iie&dl=0">Laser Origami: Laser-Cutting 3D Objects. (2013) Mueller et al.</a>
-          </ul>
-
-          Week #9 (Oct. 27th): <a href="https://www.dropbox.com/scl/fi/n88jus11rfbetq1qg5j99/week9-deconstruction-aware-fabrication.pptx?rlkey=dlbko3edtgc7hq536q4s8d5oe&dl=0">Deconstruction Aware Fabrication </a>
-          <ul>
-            Reading: <a href="https://www.dropbox.com/scl/fi/ju0o3ejtfjotvqnuweovk/FunctionalDestruction.pdf?rlkey=up9o9q998luzrkhpctkrbeqtz&dl=0">Functional Destruction: Utilizing Sustainable Materials’ Physical Transiency for Electronics Applications. (2023) Cheng et al.</a>
-          </ul>
-
-          Week #10 (Nov.10th): Final Project Interim Critique<br/>
-          <ul>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSemnO3tWB1eOvmDgyqhVkClsdG26Ed9M4xCT-hXpAg6oGlCzg/viewform?usp=header">Peer-review Feedback</a><br/>
-            <a href="https://drive.google.com/drive/folders/1idIWLAfD8h9-SEoIa8bGbotqaQ0_qJWd?usp=sharing">Slide upload link</a>
-          </ul>
-
-          Week #11 (Nov.17th): <a href="https://docs.google.com/presentation/d/1KdzQDhIxtKnEUvdTGIwH2cvhMmunSbAz_ikArK7d6o4/edit?usp=sharing" target:="_blank">CNC Milling Labs</a><br/>
-          
-          Week #15 (Final Week): Final Presentation
-          <ul>
-            <a href="https://drive.google.com/drive/folders/1g6VAMBx35uvdCSQIeuoMIZ0kj7YWfhgw?usp=sharing">Presentation File Upload</a>
-          </ul>
+      <div class="week" style="--cat:var(--rose)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 03</span>
+          <span class="week-date">Sep 8</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/wgdwlgx8ycd9hmk5xohg2/Week3-Fall2025.pptx?rlkey=6lu0aczakye6k7v273wkdaeke&dl=0" target="_blank" rel="noopener">Idea Pitch &amp; Paper Pinhole Camera</a></span>
+          <span class="tag">hands-on</span>
         </div>
-      </section>
+      </div>
 
+      <div class="week" style="--cat:var(--amber)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 04</span>
+          <span class="week-date">Sep 15</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/fcah56h3blmdahbob9dwf/week4-Metamaterials.pptx?rlkey=1ahlmnjetzb3n6yzahexxdvgs&dl=0" target="_blank" rel="noopener">3D Printing Basics &amp; Metamaterial Mechanisms</a></span>
+          <span class="tag">materials</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Reading</span><a href="https://www.dropbox.com/scl/fi/s80nqqmaqov7fn35nilzd/metamaterial.pdf?rlkey=f2zmpjrj95p85lv7e375mpfka&dl=0" target="_blank" rel="noopener">Metamaterial Mechanisms — Ion et al., 2016</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--indigo)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 05</span>
+          <span class="week-date">Sep 22</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/3ksqpl2d9nzpmxjixe6ek/week5-Slicer_Gcode.pptx?rlkey=gvdebb5g5dq5r38eksrohqm6s&dl=0" target="_blank" rel="noopener">Slicing &amp; G-code</a></span>
+          <span class="tag">software</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Reading</span><a href="https://www.dropbox.com/scl/fi/e20tc8t96ynjley4kkx4b/furbrication.pdf?rlkey=i74g7hr9vhw9jnyg97ccs0egh&dl=0" target="_blank" rel="noopener">3D Printed Hair: Fused Deposition Modeling of Soft Strands, Fibers and Bristles — Laput et al., 2015</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--rose)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 06</span>
+          <span class="week-date">Sep 29</span>
+          <span class="off-note">No class</span>
+          <span class="tag">milestone</span>
+        </div>
+        <p class="week-context">Instructor is at <a href="https://uist.acm.org/2025/" target="_blank" rel="noopener" style="color:var(--muted); border-bottom:1px solid var(--paper-line);">UIST&rsquo;25</a>, Busan, Korea.</p>
+        <ul class="resources">
+          <li><span class="res-label">Video</span><a href="https://drive.google.com/drive/folders/1qfJg9mD4AXfVk9oKstzE3rkHkhcc8Z8Q?usp=drive_link" target="_blank" rel="noopener">Midterm presentation — recording upload</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--amber)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 07</span>
+          <span class="week-date">Oct 6</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/6heapucc3vjpcbuq0d1qv/week7-PassiveSensing.pptx?rlkey=5w8tuxdya4xattrh4p573gd8o&dl=0" target="_blank" rel="noopener">Smart Materials for FDM Printing with Digital Capabilities</a></span>
+          <span class="tag">materials</span>
+        </div>
+      </div>
+
+      <div class="week" style="--cat:var(--teal)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 08</span>
+          <span class="week-date">Oct 20</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/93ityhh53s175gh20hs9d/week8-svgLasercutting.pptx?rlkey=hywy4khb400rqytx2fyv6kh1k&dl=0" target="_blank" rel="noopener">SVG (Vectors) and Laser Cutting</a></span>
+          <span class="tag">fabrication</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Reading</span><a href="https://www.dropbox.com/scl/fi/69z0thr9iu882j2ahdbf6/LaserOrigami.pdf?rlkey=jdx6g7zz6v5wwd3aqa8hp4iie&dl=0" target="_blank" rel="noopener">Laser Origami: Laser-Cutting 3D Objects — Mueller et al., 2013</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--teal)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 09</span>
+          <span class="week-date">Oct 27</span>
+          <span class="week-topic"><a href="https://www.dropbox.com/scl/fi/n88jus11rfbetq1qg5j99/week9-deconstruction-aware-fabrication.pptx?rlkey=dlbko3edtgc7hq536q4s8d5oe&dl=0" target="_blank" rel="noopener">Deconstruction Aware Fabrication</a></span>
+          <span class="tag">fabrication</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Reading</span><a href="https://www.dropbox.com/scl/fi/ju0o3ejtfjotvqnuweovk/FunctionalDestruction.pdf?rlkey=up9o9q998luzrkhpctkrbeqtz&dl=0" target="_blank" rel="noopener">Functional Destruction: Utilizing Sustainable Materials&rsquo; Physical Transiency for Electronics Applications — Cheng et al., 2023</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--rose)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 10</span>
+          <span class="week-date">Nov 10</span>
+          <span class="week-topic">Final Project Interim Critique</span>
+          <span class="tag">milestone</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Form</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSemnO3tWB1eOvmDgyqhVkClsdG26Ed9M4xCT-hXpAg6oGlCzg/viewform?usp=header" target="_blank" rel="noopener">Peer-review feedback</a></li>
+          <li><span class="res-label">Upload</span><a href="https://drive.google.com/drive/folders/1idIWLAfD8h9-SEoIa8bGbotqaQ0_qJWd?usp=sharing" target="_blank" rel="noopener">Slide upload link</a></li>
+        </ul>
+      </div>
+
+      <div class="week" style="--cat:var(--indigo)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 11</span>
+          <span class="week-date">Nov 17</span>
+          <span class="week-topic"><a href="https://docs.google.com/presentation/d/1KdzQDhIxtKnEUvdTGIwH2cvhMmunSbAz_ikArK7d6o4/edit?usp=sharing" target="_blank" rel="noopener">CNC Milling Labs</a></span>
+          <span class="tag">hands-on</span>
+        </div>
+      </div>
+
+      <div class="week" style="--cat:var(--rose)">
+        <span class="week-node"></span>
+        <div class="week-head">
+          <span class="week-num">WEEK 15</span>
+          <span class="week-date">Final week</span>
+          <span class="week-topic">Final Presentation</span>
+          <span class="tag">milestone</span>
+        </div>
+        <ul class="resources">
+          <li><span class="res-label">Upload</span><a href="https://drive.google.com/drive/folders/1g6VAMBx35uvdCSQIeuoMIZ0kj7YWfhgw?usp=sharing" target="_blank" rel="noopener">Presentation file upload</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>CSCE 743 · Digital Fabrication Studio</span>
+    <span>HCIED Lab</span>
+  </footer>
+
+</div>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    const els = document.querySelectorAll('.week');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.week').forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
