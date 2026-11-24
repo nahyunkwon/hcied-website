@@ -1,0 +1,6 @@
+[54286:2844468:1124/114552.040591:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[54286:2844468:1124/114552.041030:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[54286:2844468:1124/114552.041106:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[54286:2844468:1124/114552.041167:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+Trying to load the allocator multiple times. This is *not* supported.
+89715 bytes written to file /Users/abulalarabi/Development/hcied-website/.scratchpad/equipments/mobile-equipment.png
