@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Install Rayforge on macOS, import the OMTech Polar 50W profile, set Z focus, and find example settings for 3 mm wood.">
+  <title>Rayforge for OMTech Polar 50W · Setup Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="guide.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="nav glass">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span><span>Polar Guide</span></a>
+      <nav aria-label="Guide sections">
+        <a href="#setup">Setup</a><a href="#interface">Interface</a><a href="#focus">Z height</a><a href="#wood">Wood settings</a>
+      </nav>
+      <button class="button nav-button" type="button" data-dialog="downloads"><span aria-hidden="true">↓</span> Downloads</button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> Rayforge <span class="divider"></span> macOS</p>
+        <h1 id="hero-title">Polar 50W<br><em>Setup Guide</em></h1>
+        <p class="intro">Created by <strong>Arabi</strong> for the <strong>HCIED Lab</strong>.</p>
+        <div class="actions">
+          <a class="button primary" href="#setup">Start setup</a>
+          <button class="button secondary glass" type="button" data-dialog="downloads"><span aria-hidden="true">↓</span> Profile downloads</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-glow"></div>
+        <button class="hero-window" type="button" data-shot="workspace" aria-label="Enlarge Rayforge workspace screenshot">
+          <span class="window-bar"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span>Rayforge workspace</span><span class="expand" aria-hidden="true">⤢</span></span>
+          <img src="assets/workspace.webp" alt="Rayforge canvas and layer controls with a rectangle on the cutting bed" fetchpriority="high">
+        </button>
+        <div class="floating glass profile-float"><span class="tile blue" aria-hidden="true">▣</span><span><strong>OMTech Polar 50W</strong><small>Ruida RPA · USB</small></span></div>
+        <div class="floating glass focus-float"><span class="tile lilac" aria-hidden="true">◎</span><span><strong>14.00 mm</strong><small>Z jog for 3 mm stock</small></span></div>
+      </div>
+    </section>
+
+    <section id="setup" class="section" aria-labelledby="setup-title">
+      <div class="section-head"><h2 id="setup-title">Get set up</h2><p>Install Rayforge, then choose a profile import or full restore.</p></div>
+      <div class="setup-grid">
+        <button class="setup-card glass" type="button" data-dialog="install"><span class="tile blue" aria-hidden="true">↓</span><strong>Install Rayforge</strong><span class="card-copy">Download the macOS app and connect the Polar over USB.</span><span class="card-action">Installation steps</span></button>
+        <button class="setup-card glass" type="button" data-dialog="profile"><span class="tile lilac" aria-hidden="true">⊞</span><strong>Add the machine profile</strong><span class="card-copy">Add the OMTech Polar 50W to an existing Rayforge setup.</span><span class="card-action">Profile import steps</span></button>
+        <button class="setup-card glass" type="button" data-dialog="restore"><span class="tile peach" aria-hidden="true">▤</span><strong>Restore the workspace</strong><span class="card-copy">Use the workspace ZIP to restore the machine and app settings.</span><span class="card-action">Workspace restore steps</span></button>
+      </div>
+      <div class="specs glass" aria-label="Machine profile settings">
+        <div><span>Driver</span><strong>Ruida RPA</strong></div><div><span>Work area</span><strong>508 × 305 mm</strong></div><div><span>Origin</span><strong>Rear right</strong></div><div><span>Frame power</span><strong>0%</strong></div>
+      </div>
+    </section>
+
+    <section id="interface" class="section" aria-labelledby="interface-title">
+      <div class="section-head"><h2 id="interface-title">Inside Rayforge</h2><p>Open any screenshot for a closer look.</p></div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section id="focus" class="section" aria-labelledby="focus-title">
+      <div class="section-head"><h2 id="focus-title">Set the Z height</h2><p>Focus the Polar 50W on the top of your material with the stock 2-inch lens.</p></div>
+      <div class="focus-grid">
+        <article class="glass panel">
+          <h3>Jog the laser head</h3>
+          <ol class="procedure">
+            <li>Open the <strong>Control Panel</strong> from the toolbar or the View menu.</li>
+            <li>Press <strong>Home Z</strong> and confirm the Z readout is <strong>0.00 mm</strong>.</li>
+            <li>Enter the calculated <strong>Jog Distance</strong> and press Return.</li>
+            <li>Press <strong>Z Down</strong> once and check the Z readout.</li>
+          </ol>
+          <p class="note">Use <strong>Jog Distance</strong> and <strong>Z Down</strong> to set Z. With this Ruida RPA profile, <strong>Move to Position</strong> controls X and Y only.</p>
+        </article>
+        <article class="glass panel calculator">
+          <h3 id="calc-title">Z-drop calculator</h3>
+          <p class="formula">17 mm − material thickness</p>
+          <label for="thickness">Material thickness</label>
+          <div class="input-wrap"><input id="thickness" type="number" min="0" max="17" step="any" value="3" inputmode="decimal" aria-describedby="focus-error"><span>mm</span></div>
+          <div class="presets" aria-label="Example thicknesses"><button type="button" data-thickness="1.5">1.5 mm</button><button type="button" data-thickness="3">3 mm</button><button type="button" data-thickness="4">4 mm</button><button type="button" data-thickness="6">6 mm</button></div>
+          <div class="result"><span>Jog distance</span><output id="drop" for="thickness" aria-live="polite">14.00 mm</output></div>
+          <p id="focus-error" class="error" hidden>Enter a thickness greater than 0 and up to 17 mm.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="wood" class="section" aria-labelledby="wood-title">
+      <div class="section-head wood-head"><div><h2 id="wood-title">3 mm wood settings</h2><p>Example values for the Polar 50W.</p></div><label class="unit-label" for="units">Speed unit <select id="units"><option value="sec">mm/s</option><option value="min">mm/min</option></select></label></div>
+      <div class="glass table-card">
+        <table>
+          <thead><tr><th scope="col">Operation</th><th scope="col" id="speed-heading">Speed (mm/s)</th><th scope="col">Min power</th><th scope="col">Max power</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Image raster</th><td data-speed="150">150</td><td>5%</td><td>20%</td></tr>
+            <tr><th scope="row">Text fill</th><td data-speed="100">100</td><td>20%</td><td>20%</td></tr>
+            <tr><th scope="row">Text outline</th><td data-speed="150">150</td><td>20%</td><td>20%</td></tr>
+            <tr><th scope="row">Contour cut</th><td data-speed="20">20</td><td>95%</td><td>95%</td></tr>
+          </tbody>
+        </table>
+        <div class="table-notes"><p>Match the speed unit shown in Rayforge before entering a value.</p><p>Test on scrap using the same stock. Keep cutting power within your machine’s rated limits. <a href="https://omtech.com/pages/omtech-laser-user-manuals">OMTech manuals</a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><p>Prepared by <strong>Arabi</strong> <a href="mailto:arabiabulal@gmail.com">arabiabulal@gmail.com</a></p><div><a href="https://rayforge.org/docs/">Rayforge docs</a><a href="https://help.omtechlaser.com/hc/en-us/articles/34237674135321-Setting-Up-Your-OMTech-Polar-Desktop-Engraving-Machine-New">OMTech setup</a></div></footer>
+
+  <dialog class="modal glass" id="guide-dialog" aria-labelledby="dialog-title">
+    <button type="button" class="close" data-close aria-label="Close dialog">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <dialog class="modal lightbox glass" id="shot-dialog" aria-labelledby="shot-title">
+    <button type="button" class="close" data-close aria-label="Close screenshot">×</button>
+    <h2 id="shot-title"></h2>
+    <img id="shot-image" alt="">
+    <div class="shot-footer"><p id="shot-caption"></p><div class="shot-nav"><button type="button" data-shot-step="-1">Previous</button><button type="button" data-shot-step="1">Next</button></div></div>
+  </dialog>
+
+  <template id="install">
+    <h2 id="dialog-title">Install Rayforge</h2>
+    <ol class="procedure">
+      <li>Get the macOS DMG for your Mac from Rayforge Releases. Check <strong>Apple menu → About This Mac</strong> to identify Apple Silicon or Intel.</li>
+      <li>Open the DMG, drag <strong>Rayforge</strong> into <strong>Applications</strong>, and open it.</li>
+      <li>Power on the Polar and connect your Mac to its <strong>PC-USB</strong> port.</li>
+    </ol>
+    <p class="note">To check USB detection, run <code>ls -l /dev/cu.usbserial-*</code> in Terminal.</p>
+    <div class="actions"><a class="button primary" href="https://github.com/barebaric/rayforge/releases/latest">Rayforge Releases</a><button class="button secondary" type="button" data-dialog="profile">Add a profile</button></div>
+  </template>
+
+  <template id="profile">
+    <h2 id="dialog-title">Add the machine profile</h2>
+    <ol class="procedure">
+      <li>Download <strong>OMTech Polar 50W.rfdevice.zip</strong>. Keep it zipped.</li>
+      <li>In Rayforge, open <strong>Machine → Manage Machines… → Add Machine → Import from File…</strong> and select the profile ZIP. On first launch, start with <strong>Configure Manually</strong> if shown.</li>
+      <li>Open the imported profile’s <strong>Machine Settings</strong>. Select your Mac’s <code>/dev/cu.usbserial-*</code> device in the USB dropdown. Leave Hostname blank for USB.</li>
+      <li>Select <strong>OMTech Polar 50W</strong> in the machine picker and check for <strong>Connected</strong> at the bottom left.</li>
+    </ol>
+    <div class="actions"><a class="button primary" href="assets/OMTech%20Polar%2050W.rfdevice.zip" download>Download machine profile</a></div>
+  </template>
+
+  <template id="restore">
+    <h2 id="dialog-title">Restore the workspace</h2>
+    <ol class="procedure">
+      <li>Download and unzip <strong>rayforge.zip</strong>. It contains a <code>rayforge</code> folder with app settings and the Polar profile.</li>
+      <li>Quit Rayforge with <kbd>⌘ Q</kbd>. In Finder, open <strong>Go → Go to Folder</strong> and enter <code>~/Library/Application Support/</code>.</li>
+      <li>Rename any existing <code>rayforge</code> folder to an unused backup name, such as <code>rayforge-backup</code>. Move the extracted <code>rayforge</code> folder into Application Support.</li>
+      <li>Relaunch Rayforge, select <strong>OMTech Polar 50W</strong>, and select your Mac’s USB port in Machine Settings. Check for <strong>Connected</strong>.</li>
+    </ol>
+    <p class="note">To undo the restore, quit Rayforge, move the restored folder aside, and rename your backup to <code>rayforge</code>.</p>
+    <div class="actions"><a class="button primary" href="assets/rayforge.zip" download>Download workspace ZIP</a></div>
+  </template>
+
+  <template id="downloads">
+    <h2 id="dialog-title">Profile downloads</h2>
+    <div class="download-list">
+      <article><div><h3>Machine profile</h3><p>Add the Polar to Rayforge.</p></div><a class="button primary" href="assets/OMTech%20Polar%2050W.rfdevice.zip" download aria-label="Download machine profile">↓ ZIP</a></article>
+      <article><div><h3>Workspace backup</h3><p>Restore the Polar machine and app settings.</p></div><a class="button primary" href="assets/rayforge.zip" download aria-label="Download workspace backup">↓ ZIP</a></article>
+    </div>
+  </template>
+</body>
+</html>
