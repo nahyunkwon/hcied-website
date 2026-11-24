@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/laser",
+      "destination": "/laser/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/laser/",
+      "destination": "/laser/index.html"
+    }
+  ]
+}
