@@ -175,6 +175,16 @@ h1.name{font-size:clamp(34px,4.4vw,56px);font-weight:600;letter-spacing:-.02em;l
 .contact-card .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
 .contact-card .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.07)}
 
+/* ---- join note (under hero buttons) ---- */
+.join-note{margin-top:22px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:8px;background:var(--surface);max-width:85ch;scroll-margin-top:70px}
+.join-note h2{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.join-note p{font-size:14.5px;color:var(--ink-2);line-height:1.58;margin:0 0 8px}
+.join-note p strong{color:var(--ink)}
+.join-note a:not(.btn){color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-tint)}
+.join-note a:not(.btn):hover{border-bottom-color:var(--accent)}
+.join-note .btn{margin-top:4px}
+
 footer{padding:24px 0 36px;border-top:1px solid var(--line)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
   font-size:13px;font-style:italic;color:var(--soft)}
@@ -257,6 +267,13 @@ footer{padding:24px 0 36px;border-top:1px solid var(--line)}
           </a>
           <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=zNjEAPwAAAAJ&hl=en">Google Scholar</a>
           <a class="btn btn-ghost" href="mailto:jeeeun.kim@tamu.edu">Email</a>
+        </div>
+
+        <div class="join-note" id="contact">
+          <h2>Interested in working with me?</h2>
+          <p>Please complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqRzDZXgjT7D1NuFsFwQKx_tS1grwPWIJRQMVTSlIMewKjHw/viewform?usp=sf_link">this form</a> <em>before</em> emailing me. I will not reply to cold emails that do not <strong>confirm the form has been submitted.</strong></p>
+          <p>For talks, collaborations, and press, email is best!</p>
+          <!-- <a class="btn btn-solid" href="https://docs.google.com/forms/d/e/1FAIpQLSdqRzDZXgjT7D1NuFsFwQKx_tS1grwPWIJRQMVTSlIMewKjHw/viewform?usp=sf_link">Prospective student form →</a> -->
         </div>
     </div>
 
@@ -363,20 +380,6 @@ footer{padding:24px 0 36px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- ======== CONTACT ======== -->
-<section class="contact-section" id="contact">
-  <div class="wrap">
-    <div class="contact-card rise">
-      <h2>Interested in working with me?</h2>
-      <p>Prospective students: fill out the lab form, then send a hello. For talks, collaborations, and press — email is best.</p>
-      <div class="contact-actions">
-        <a class="btn btn-solid" href="https://docs.google.com/forms/d/e/1FAIpQLSdqRzDZXgjT7D1NuFsFwQKx_tS1grwPWIJRQMVTSlIMewKjHw/viewform?usp=sf_link">Prospective student form →</a>
-        <a class="btn btn-ghost" href="mailto:jeeeun.kim@tamu.edu">jeeeun.kim@tamu.edu</a>
-        <a class="btn btn-ghost" href="http://hcied.info">HCIed Lab</a>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer>
